@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veziroglu · Boutique Consulting · FORTE · TENOR · STAVR</title>
-<meta name="description" content="Veziroglu is a boutique consultancy with three practices: FORTE for outcome-led business transformation, TENOR for data governance and analysis, and STAVR, a licensable framework for encoding expert task execution.">
+<title>Veziroglu · Boutique Consultancy</title>
+<meta name="description" content="Veziroglu is a boutique consultancy with five practices: FORTE for outcome-led delivery, TENOR for data governance, SCALE for resource architecture, SCORE for operating model design, and PULSE, a licensed framework for encoding expert task execution.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -15,8 +15,8 @@
     --accent-light: #d4a843;
     --muted: #6b6560;
     --rule: #d6d1ca;
-    --tenor: #2d5a4a;
-    --tenor-light: #4a9178;
+    --navy: #1E3A5F;
+    --navy-light: #2a5080;
     --serif: 'Instrument Serif', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
   }
@@ -30,19 +30,33 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
-    padding: 1.25rem 2rem;
+    padding: 1.15rem 2rem;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(248,246,242,0.85); backdrop-filter: blur(12px);
+    background: rgba(248,246,242,0.88); backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--rule); transition: box-shadow .3s;
   }
   nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
   .logo {
-    font-family: var(--serif); font-size: 1.55rem; font-weight: 400;
-    letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
+    display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+    transition: opacity .2s;
   }
-  .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
+  .logo:hover { opacity: 0.7; }
+  .logo-text {
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+    letter-spacing: 0.12em; color: var(--navy); line-height: 1.1;
+    display: flex; flex-direction: column;
+  }
+  .logo-sub {
+    font-family: var(--sans); font-size: 0.52rem; font-weight: 500;
+    letter-spacing: 0.28em; color: var(--muted); margin-top: 0.15rem;
+  }
+  .logo-rule {
+    display: block; width: 100%; height: 1px;
+    background: var(--accent); margin-top: 0.2rem;
+  }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
   .nav-links a {
-    text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 500;
+    text-decoration: none; color: var(--muted); font-size: 0.8rem; font-weight: 500;
     letter-spacing: 0.04em; text-transform: uppercase; transition: color .2s;
   }
   .nav-links a:hover { color: var(--ink); }
@@ -53,7 +67,7 @@
   /* ── HERO ── */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 2rem 4rem; max-width: 980px; margin: 0 auto;
+    padding: 8rem 2rem 4rem; max-width: 1000px; margin: 0 auto;
   }
   .hero-eyebrow {
     font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
@@ -61,248 +75,231 @@
     opacity: 0; animation: fadeUp .8s ease forwards;
   }
   .hero h1 {
-    font-family: var(--serif); font-size: clamp(2.5rem, 5.5vw, 4rem);
-    line-height: 1.12; font-weight: 400; letter-spacing: -0.02em;
+    font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.14; font-weight: 400; letter-spacing: -0.02em;
     margin-bottom: 1.75rem; opacity: 0; animation: fadeUp .8s ease .15s forwards;
   }
-  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero h1 em { font-style: italic; color: var(--navy); }
   .hero-body {
-    font-size: 1.08rem; color: var(--muted); max-width: 640px;
+    font-size: 1.06rem; color: var(--muted); max-width: 660px;
     margin-bottom: 2.5rem; opacity: 0; animation: fadeUp .8s ease .3s forwards;
   }
   .hero-cta {
-    display: inline-flex; gap: 0.75rem;
+    display: inline-flex; gap: 0.6rem; flex-wrap: wrap;
     opacity: 0; animation: fadeUp .8s ease .45s forwards;
   }
   .btn {
-    display: inline-block; padding: 0.8rem 1.75rem;
-    font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+    display: inline-block; padding: 0.7rem 1.5rem;
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
     letter-spacing: 0.04em; text-transform: uppercase;
     text-decoration: none; border-radius: 2px; transition: all .25s; cursor: pointer;
   }
-  .btn-primary { background: var(--ink); color: var(--paper); border: 2px solid var(--ink); }
-  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
-  .btn-secondary { background: var(--tenor); color: #fff; border: 2px solid var(--tenor); }
-  .btn-secondary:hover { background: var(--tenor-light); border-color: var(--tenor-light); }
-  .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--rule); }
-  .btn-outline:hover { border-color: var(--ink); }
+  .btn-forte { background: #3a3632; color: var(--paper); border: 2px solid #3a3632; }
+  .btn-forte:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-tenor { background: #3a3632; color: var(--paper); border: 2px solid #3a3632; }
+  .btn-tenor:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-scale { background: #3a3632; color: var(--paper); border: 2px solid #3a3632; }
+  .btn-scale:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-score { background: #3a3632; color: var(--paper); border: 2px solid #3a3632; }
+  .btn-score:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-pulse { background: var(--navy); color: #fff; border: 2px solid var(--navy); }
+  .btn-pulse:hover { background: var(--navy-light); border-color: var(--navy-light); }
 
   /* ── SECTIONS ── */
-  .s { padding: 6rem 2rem; max-width: 980px; margin: 0 auto; }
-  .section-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 4rem; }
+  .s { padding: 5.5rem 2rem; max-width: 1000px; margin: 0 auto; }
+  .section-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 3.5rem; }
   .section-label {
-    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;
   }
   .s h2 {
-    font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 400; line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 1.5rem;
+    font-family: var(--serif); font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    font-weight: 400; line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 1.25rem;
   }
-  .s p.lead { font-size: 1.05rem; color: var(--muted); max-width: 640px; margin-bottom: 3rem; }
+  .s p.lead { font-size: 1rem; color: var(--muted); max-width: 660px; margin-bottom: 2.5rem; }
+  .body-text { color: var(--muted); max-width: 660px; line-height: 1.75; margin-bottom: 1.25rem; }
 
   /* ── OFFERINGS ── */
-  .offerings-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
+  .offerings-top { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+  .offerings-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
   .offering-card {
-    border: 1px solid var(--rule); border-radius: 3px; padding: 2.25rem;
+    border: 1px solid var(--rule); border-radius: 3px; padding: 2rem;
     transition: border-color .25s, box-shadow .25s;
     text-decoration: none; color: inherit; display: block;
   }
   .offering-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-  .offering-card:hover.card-forte { border-color: var(--accent); }
-  .offering-card:hover.card-tenor { border-color: var(--tenor); }
-  .offering-card:hover.card-stavr { border-color: var(--accent); }
   .offering-card .card-name {
-    font-family: var(--sans); font-size: 1.2rem; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.3rem;
+    font-family: var(--sans); font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.2rem;
   }
-  .card-forte .card-name span { color: var(--accent); }
-  .card-tenor .card-name span { color: var(--tenor); }
-  .card-stavr .card-name span { color: var(--accent); }
   .offering-card .card-type {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 1.15rem;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
   }
-  .offering-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+  .offering-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  .card-forte:hover { border-color: var(--ink); }
+  .card-forte .card-name { color: var(--ink); }
+  .card-pulse { background: var(--navy); border-color: var(--navy); }
+  .card-pulse:hover { border-color: var(--navy); box-shadow: 0 6px 28px rgba(30,58,95,0.2); }
+  .card-pulse .card-name { color: #fff; }
+  .card-pulse .card-type { color: rgba(255,255,255,0.5); }
+  .card-pulse p { color: rgba(255,255,255,0.7); }
+  .card-tenor:hover { border-color: var(--ink); }
+  .card-tenor .card-name { color: var(--ink); }
+  .card-scale:hover { border-color: var(--ink); }
+  .card-scale .card-name { color: var(--ink); }
+  .card-score:hover { border-color: var(--ink); }
+  .card-score .card-name { color: var(--ink); }
+
+  /* ── PRODUCT NAME ── */
+  .product-name {
+    font-family: var(--sans); font-size: 1.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem;
+  }
+  .product-sub {
+    font-size: 0.82rem; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 1.75rem;
+  }
 
   /* ── FORTE ── */
-  .product-name {
-    font-family: var(--sans); font-size: 1.8rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem;
-  }
-  .product-name span { color: var(--accent); }
-  .product-sub {
-    color: var(--muted); font-size: 0.85rem; letter-spacing: 0.06em;
-    text-transform: uppercase; margin-bottom: 2rem;
-  }
-  .body-text { color: var(--muted); max-width: 640px; line-height: 1.75; margin-bottom: 1.5rem; }
+  .forte-section .product-name { color: var(--ink); }
+  .forte-section .product-sub { color: var(--muted); }
 
-  /* SDLC */
-  .sdlc-visual { margin: 3rem 0; overflow-x: auto; }
+  .sdlc-visual { margin: 2.5rem 0; overflow-x: auto; }
   .sdlc-pipeline { display: flex; gap: 0; min-width: 720px; }
   .sdlc-phase {
-    flex: 1; padding: 1.4rem 0.75rem; text-align: center; position: relative;
+    flex: 1; padding: 1.25rem 0.6rem; text-align: center;
     transition: transform .2s;
   }
   .sdlc-phase:hover { transform: translateY(-2px); }
   .sdlc-phase .phase-name {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; margin-bottom: 0.4rem;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 0.35rem;
   }
-  .sdlc-phase .phase-desc { font-size: 0.72rem; line-height: 1.4; opacity: 0.85; }
+  .sdlc-phase .phase-desc { font-size: 0.7rem; line-height: 1.4; opacity: 0.85; }
   .sdlc-phase.forte { background: var(--ink); color: var(--paper); }
   .sdlc-phase.forte .phase-name { color: var(--accent-light); }
-  .sdlc-phase.tenor { background: var(--tenor); color: #fff; }
-  .sdlc-phase.tenor .phase-name { color: #a0dcc4; }
   .sdlc-phase.governed { background: #e8e4de; color: var(--muted); }
   .sdlc-phase:first-child { border-radius: 3px 0 0 3px; }
   .sdlc-phase:last-child { border-radius: 0 3px 3px 0; }
   .sdlc-legend {
-    display: flex; gap: 1.75rem; margin-top: 1.25rem; font-size: 0.76rem; color: var(--muted);
+    display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.74rem; color: var(--muted);
   }
   .sdlc-legend .dot {
     display: inline-block; width: 10px; height: 10px; border-radius: 2px;
     margin-right: 0.5rem; vertical-align: middle;
   }
   .sdlc-legend .dot.forte-dot { background: var(--ink); }
-  .sdlc-legend .dot.tenor-dot { background: var(--tenor); }
   .sdlc-legend .dot.gov-dot { background: #e8e4de; }
 
   .outcome-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; margin-top: 2.5rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.75rem; margin-top: 2.25rem;
   }
-  .outcome-item { padding: 1.5rem 0; border-top: 1px solid var(--rule); }
-  .outcome-item h4 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
-  .outcome-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .outcome-item { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+  .outcome-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; }
+  .outcome-item p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
 
-  .tools-row { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .tools-row { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .tools-row span {
-    padding: 0.45rem 1rem; border: 1px solid var(--rule);
-    font-size: 0.78rem; font-weight: 500; color: var(--muted); border-radius: 2px;
+    padding: 0.4rem 0.9rem; border: 1px solid var(--rule);
+    font-size: 0.75rem; font-weight: 500; color: var(--muted); border-radius: 2px;
   }
 
-  /* ── TENOR ── */
-  .tenor-section { background: #f0f4f2; padding: 6rem 2rem; }
-  .tenor-inner { max-width: 980px; margin: 0 auto; }
-  .tenor-section .section-label { color: var(--tenor); }
-  .tenor-section .product-name span { color: var(--tenor); }
-  .tenor-section .product-sub { color: var(--tenor); opacity: 0.7; }
+  /* ── SPECIALIST SECTIONS ── */
+  .specialist-section { padding: 5.5rem 2rem; }
+  .specialist-inner { max-width: 1000px; margin: 0 auto; }
 
-  .tenor-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; margin-top: 2.5rem;
-  }
-  .tenor-item { padding: 1.5rem 0; border-top: 1px solid #c8d5cf; }
-  .tenor-item h4 { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; margin-bottom: 0.5rem; }
-  .tenor-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .tenor-bg { background: #f2f1ef; }
+  .tenor-bg .section-label { color: var(--accent); }
+  .tenor-bg .product-name { color: var(--ink); }
+  .tenor-bg .product-sub { color: var(--muted); }
 
-  .tenor-tools { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .tenor-tools span {
-    padding: 0.45rem 1rem; border: 1px solid #b5c9be;
-    font-size: 0.78rem; font-weight: 500; color: var(--tenor); border-radius: 2px;
+  .scale-bg { background: var(--paper); }
+  .scale-bg .section-label { color: var(--accent); }
+  .scale-bg .product-name { color: var(--ink); }
+  .scale-bg .product-sub { color: var(--muted); }
+
+  .score-bg { background: #f2f1ef; }
+  .score-bg .section-label { color: var(--accent); }
+  .score-bg .product-name { color: var(--ink); }
+  .score-bg .product-sub { color: var(--muted); }
+
+  .spec-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.75rem; margin-top: 2.25rem;
+  }
+  .spec-item { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
+  .spec-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; }
+  .spec-item p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── PULSE ── */
+  .pulse-section { background: var(--navy); color: var(--paper); padding: 5.5rem 2rem; }
+  .pulse-inner { max-width: 1000px; margin: 0 auto; }
+  .pulse-section .section-label { color: var(--accent-light); }
+  .pulse-section .product-name { color: var(--paper); }
+  .pulse-section .product-sub { color: rgba(255,255,255,0.5); }
+
+  .pulse-banner {
+    width: 100%; max-width: 800px; margin: 0 0 2.5rem;
+    border-radius: 3px; display: block;
   }
 
-  /* ── STAVR ── */
-  .stavr-section { background: var(--ink); color: var(--paper); padding: 6rem 2rem; }
-  .stavr-inner { max-width: 980px; margin: 0 auto; }
-  .stavr-section .section-label { color: var(--accent-light); }
-  .stavr-section .product-name { color: var(--paper); }
-  .stavr-section .product-name span { color: var(--accent-light); }
-  .stavr-full {
-    color: #888; font-size: 0.85rem; letter-spacing: 0.06em;
-    text-transform: uppercase; margin-bottom: 2rem;
-  }
-  .stavr-quote {
-    font-family: var(--serif); font-size: 1.2rem; font-style: italic;
+  .pulse-quote {
+    font-family: var(--serif); font-size: 1.15rem; font-style: italic;
     color: var(--accent-light); line-height: 1.5;
     border-left: 2px solid var(--accent); padding-left: 1.5rem;
-    margin: 2.5rem 0; max-width: 640px;
+    margin: 2rem 0; max-width: 640px;
   }
-  .stavr-body { color: #ccc; max-width: 640px; line-height: 1.75; margin-bottom: 1.5rem; }
+  .pulse-body { color: rgba(255,255,255,0.75); max-width: 640px; line-height: 1.75; margin-bottom: 1.25rem; }
 
-  /* STAVR Diagram */
-  .stavr-diagram { margin: 3rem 0; max-width: 720px; }
-  .layer-stack { display: flex; flex-direction: column; gap: 0; }
-  .layer-row {
-    display: grid; grid-template-columns: 160px 1fr; gap: 0; align-items: stretch;
+  .pulse-features {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem; margin-top: 2.5rem;
   }
-  .layer-label {
-    padding: 1.25rem; font-size: 0.72rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center;
-  }
-  .layer-content {
-    padding: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
-  }
-  .layer-content .chip {
-    padding: 0.35rem 0.85rem; font-size: 0.76rem; font-weight: 500; border-radius: 2px;
-  }
-  .layer-row.existing .layer-label { background: #2a2a2a; color: #777; }
-  .layer-row.existing .layer-content { background: #222; }
-  .layer-row.existing .chip { background: #333; color: #999; }
-  .layer-row.gap .layer-label { background: #3a1a00; color: var(--accent-light); }
-  .layer-row.gap .layer-content {
-    background: #2d1500; border: 1px solid var(--accent); border-left: none;
-  }
-  .layer-row.gap .chip {
-    background: rgba(184,134,11,0.2); color: var(--accent-light);
-    border: 1px solid rgba(184,134,11,0.3);
-  }
-  .gap-arrow {
-    display: flex; align-items: center; gap: 0.75rem;
-    padding: 0.75rem 0 0.75rem 160px; color: #555; font-size: 0.72rem;
-    letter-spacing: 0.06em; text-transform: uppercase;
-  }
-  .gap-arrow::before { content: ''; display: block; width: 20px; height: 1px; background: #444; }
-  .stavr-provides-label {
-    display: inline-block; margin-bottom: 0.4rem;
-    padding: 0.25rem 0.7rem; background: var(--accent); color: var(--ink);
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; border-radius: 2px;
-  }
+  .pulse-feature { border-left: 2px solid var(--accent); padding-left: 1.15rem; }
+  .pulse-feature h4 { font-size: 0.9rem; font-weight: 600; color: var(--paper); margin-bottom: 0.3rem; }
+  .pulse-feature p { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
 
-  .ip-stack { margin-top: 3rem; }
-  .ip-label {
-    color: #888; font-size: 0.85rem; letter-spacing: 0.06em;
-    text-transform: uppercase; margin-bottom: 1.25rem;
-  }
-  .ip-item { padding: 1rem 0; border-bottom: 1px solid #2a2a2a; }
-  .ip-item h4 { font-size: 0.92rem; color: var(--paper); font-weight: 600; margin-bottom: 0.25rem; }
-  .ip-item p { font-size: 0.83rem; color: #999; }
-  .target-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
-  .target-tags span {
-    padding: 0.45rem 1.1rem; border: 1px solid #444;
-    font-size: 0.78rem; font-weight: 500; color: #ccc; border-radius: 2px;
+  .pulse-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.25rem; }
+  .pulse-tags span {
+    padding: 0.4rem 1rem; border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.7); border-radius: 2px;
   }
 
   /* ── ABOUT ── */
-  .cred-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
-  .cred-tag {
-    padding: 0.55rem 1.25rem; border: 1px solid var(--rule); border-radius: 2px;
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.02em; color: var(--muted);
+  .about-logo {
+    width: 200px; height: auto; border-radius: 4px; margin-bottom: 2rem; display: block;
   }
-  .sector-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .cred-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+  .cred-tag {
+    padding: 0.5rem 1.1rem; border: 1px solid var(--rule); border-radius: 2px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; color: var(--muted);
+  }
+  .sector-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
   .sector-row span {
-    padding: 0.45rem 1.1rem; background: var(--ink); color: var(--paper);
-    font-size: 0.78rem; font-weight: 500; border-radius: 2px;
+    padding: 0.4rem 1rem; background: var(--navy); color: var(--paper);
+    font-size: 0.75rem; font-weight: 500; border-radius: 2px;
   }
 
   /* ── CONTACT ── */
-  .contact-section { background: var(--ink); color: var(--paper); padding: 6rem 2rem; text-align: center; }
+  .contact-section { background: var(--ink); color: var(--paper); padding: 5.5rem 2rem; text-align: center; }
   .contact-section .section-label { color: var(--accent-light); }
   .contact-section h2 {
-    font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-family: var(--serif); font-size: clamp(1.7rem, 3.2vw, 2.4rem);
     font-weight: 400; margin-bottom: 1rem; color: var(--paper);
   }
-  .contact-section p { color: #999; max-width: 520px; margin: 0 auto 2.5rem; }
+  .contact-section p { color: #999; max-width: 520px; margin: 0 auto 2.25rem; font-size: 0.95rem; }
   .contact-email {
-    font-family: var(--serif); font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+    font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.6rem);
     color: var(--accent-light); text-decoration: none;
     border-bottom: 1px solid transparent; transition: border-color .2s;
   }
   .contact-email:hover { border-color: var(--accent-light); }
 
   footer {
-    padding: 2rem; text-align: center; font-size: 0.78rem;
+    padding: 2rem; text-align: center; font-size: 0.75rem;
     color: var(--muted); border-top: 1px solid var(--rule);
   }
 
@@ -317,19 +314,18 @@
     .nav-links.open {
       display: flex; flex-direction: column; position: absolute;
       top: 100%; left: 0; width: 100%; background: var(--paper);
-      border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; gap: 1.25rem;
+      border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; gap: 1.15rem;
     }
     .hamburger { display: block; }
     .hero { padding: 7rem 1.25rem 3rem; }
-    .s { padding: 4rem 1.25rem; }
-    .tenor-section { padding: 4rem 1.25rem; }
-    .stavr-section { padding: 4rem 1.25rem; }
+    .s { padding: 3.5rem 1.25rem; }
+    .specialist-section { padding: 3.5rem 1.25rem; }
+    .pulse-section { padding: 3.5rem 1.25rem; }
     .hero-cta { flex-direction: column; }
     .btn { text-align: center; }
-    .offerings-grid { grid-template-columns: 1fr; }
-    .contact-section { padding: 4rem 1.25rem; }
-    .layer-row { grid-template-columns: 100px 1fr; }
-    .gap-arrow { padding-left: 100px; }
+    .offerings-top { grid-template-columns: 1fr; }
+    .offerings-bottom { grid-template-columns: 1fr; }
+    .contact-section { padding: 3.5rem 1.25rem; }
     .sdlc-pipeline { min-width: 620px; }
   }
 </style>
@@ -338,11 +334,16 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">Veziroglu</a>
+  <a href="#" class="logo" aria-label="Veziroglu Consulting">
+    <svg width="26" height="28" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h7.2l8.8 24.5L24.8 0H32L18.2 34h-4.4L0 0z" fill="var(--navy)"/></svg>
+    <span class="logo-text">VEZIROGLU<span class="logo-rule"></span><span class="logo-sub">CONSULTING</span></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#forte">Forte</a></li>
     <li><a href="#tenor">Tenor</a></li>
-    <li><a href="#stavr">STAVR</a></li>
+    <li><a href="#scale">Scale</a></li>
+    <li><a href="#score">Score</a></li>
+    <li><a href="#pulse">Pulse</a></li>
     <li><a href="#contact" class="nav-contact" aria-label="Contact"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></a></li>
   </ul>
   <button class="hamburger" aria-label="Menu">
@@ -354,11 +355,13 @@
 <header class="hero">
   <p class="hero-eyebrow">Boutique Consultancy</p>
   <h1>We turn <em>structure</em> into outcomes, and encode the expertise behind&nbsp;them.</h1>
-  <p class="hero-body">Veziroglu is a boutique consultancy with three practices. FORTE delivers outcome-led business transformation. TENOR brings data governance and analytics rigour. STAVR encodes expert task execution as licensable framework IP.</p>
+  <p class="hero-body">Veziroglu is a boutique consultancy with five practices. FORTE wraps every engagement with outcome-led delivery. TENOR, SCALE, and SCORE provide specialist capability. PULSE is the licensed framework IP that underpins them all.</p>
   <div class="hero-cta">
-    <a href="#forte" class="btn btn-primary">FORTE</a>
-    <a href="#tenor" class="btn btn-secondary">TENOR</a>
-    <a href="#stavr" class="btn btn-outline">STAVR</a>
+    <a href="#forte" class="btn btn-forte">FORTE</a>
+    <a href="#tenor" class="btn btn-tenor">TENOR</a>
+    <a href="#scale" class="btn btn-scale">SCALE</a>
+    <a href="#score" class="btn btn-score">SCORE</a>
+    <a href="#pulse" class="btn btn-pulse">PULSE</a>
   </div>
 </header>
 
@@ -366,37 +369,50 @@
 <section class="s" id="offerings">
   <hr class="section-rule">
   <div class="section-label">What we do</div>
-  <h2 >Three practices. One consultancy.</h2>
-  <p class="lead">FORTE is how we deliver change. TENOR is how we govern data. STAVR is what we've built. All three exist because execution under real-world conditions is harder than anyone's slide deck suggests.</p>
-  <div class="offerings-grid">
+  <h2>Five practices. One consultancy.</h2>
+  <p class="lead">FORTE is how we deliver. TENOR, SCALE, and SCORE are where we specialise. PULSE is the framework foundation. All five exist because execution under real-world conditions is harder than anyone's slide deck suggests.</p>
+
+  <div class="offerings-top">
     <a href="#forte" class="offering-card card-forte">
-      <div class="card-name">FORTE<span>.</span></div>
-      <div class="card-type">Consulting &amp; Delivery</div>
-      <p>Outcome-led business transformation, from capability modelling through to turnkey programme delivery. For organisations that need senior expertise embedded where it matters.</p>
+      <div class="card-name">FORTE</div>
+      <div class="card-type">Consulting &amp; Programme Delivery</div>
+      <p>Outcome-led consulting and programme delivery. The engagement wrapper. Every project starts here: what needs to be true at the end, and the architecture, governance, and delivery required to get there.</p>
     </a>
+    <a href="#pulse" class="offering-card card-pulse">
+      <div class="card-name">PULSE</div>
+      <div class="card-type">Licensed Framework IP</div>
+      <p>A domain-agnostic framework for encoding reliable task execution under real-world conditions. Licensed to enterprise customers. The foundation that underpins TENOR, SCALE, and SCORE.</p>
+    </a>
+  </div>
+
+  <div class="offerings-bottom">
     <a href="#tenor" class="offering-card card-tenor">
-      <div class="card-name">TENOR<span>.</span></div>
-      <div class="card-type">Data Governance &amp; Analysis</div>
-      <p>Data governance frameworks, data quality management, and analytical capability. Ensuring the data your organisation depends on is trusted, governed, and actionable.</p>
+      <div class="card-name">TENOR</div>
+      <div class="card-type">Data Governance &amp; Quality</div>
+      <p>Data governance frameworks, data quality management, and analytical capability. Trusted, governed, actionable data.</p>
     </a>
-    <a href="#stavr" class="offering-card card-stavr">
-      <div class="card-name">STAVR<span>.</span></div>
-      <div class="card-type">Framework &amp; IP</div>
-      <p>A framework for encoding how experts execute tasks reliably under uncertainty. Platform-agnostic, domain-agnostic, licensable. For integrators building autonomous systems.</p>
+    <a href="#scale" class="offering-card card-scale">
+      <div class="card-name">SCALE</div>
+      <div class="card-type">Resource Architecture</div>
+      <p>The capability envelope of humans, tools, platforms, and AI agents. Who and what does the work, and how they fit together.</p>
+    </a>
+    <a href="#score" class="offering-card card-score">
+      <div class="card-name">SCORE</div>
+      <div class="card-type">Operating Model &amp; Governance</div>
+      <p>Operating model design, process architecture, governance structures, and human-machine allocation. How the organisation actually runs.</p>
     </a>
   </div>
 </section>
 
 <!-- FORTE -->
-<section class="s" id="forte">
+<section class="s forte-section" id="forte">
   <hr class="section-rule">
-  <div class="section-label">Consulting &amp; Delivery</div>
-  <div class="product-name">FORTE<span>.</span></div>
-  <div class="product-sub">Outcome-led business transformation</div>
+  <div class="section-label">Consulting &amp; Programme Delivery</div>
+  <div class="product-name">FORTE</div>
+  <div class="product-sub">Outcome-led delivery. The engagement wrapper.</div>
 
-  <p class="body-text">FORTE is how Veziroglu delivers consulting. We don't sell roles or time. We sell outcomes. Every engagement starts with what needs to be true at the end, and works backwards to the architecture, governance, and delivery programme required to get there.</p>
+  <p class="body-text">FORTE is how Veziroglu delivers consulting. We don't sell roles or time. We sell outcomes. Every engagement starts with what needs to be true at the end, and works backwards to the architecture, governance, and delivery programme required to get there. FORTE wraps every project, with TENOR, SCALE, or SCORE engaged per scope.</p>
 
-  <!-- SDLC -->
   <div class="sdlc-visual">
     <div class="sdlc-pipeline">
       <div class="sdlc-phase forte">
@@ -445,7 +461,7 @@
     </div>
     <div class="outcome-item">
       <h4>Transformation &amp; Programme Delivery</h4>
-      <p>End-to-end programme leadership from idea to turnkey delivery. Platform selection, vendor coordination, steering committee governance, risk management, and phased rollout. Technology roadmaps grounded in business need, not vendor hype.</p>
+      <p>End-to-end programme leadership from idea to turnkey delivery. Platform selection, vendor coordination, steering committee governance, risk management, and phased rollout.</p>
     </div>
   </div>
 
@@ -462,119 +478,130 @@
 </section>
 
 <!-- TENOR -->
-<section class="tenor-section" id="tenor">
-  <div class="tenor-inner">
-    <div class="section-label">Data Governance &amp; Analysis</div>
-    <div class="product-name">TENOR<span>.</span></div>
+<section class="specialist-section tenor-bg" id="tenor">
+  <div class="specialist-inner">
+    <div class="section-label">Data Governance &amp; Quality</div>
+    <div class="product-name">TENOR</div>
     <div class="product-sub">Trusted data. Governed data. Actionable data.</div>
 
-    <p class="body-text">TENOR is how Veziroglu addresses the data layer. Transformation programmes fail when decisions are built on ungoverned data. TENOR establishes the frameworks, standards, and analytical capability to ensure the data your organisation depends on is trustworthy, well-understood, and fit for purpose.</p>
+    <p class="body-text">Transformation programmes fail when decisions are built on ungoverned data. TENOR establishes the frameworks, standards, and analytical capability to ensure the data your organisation depends on is trustworthy, well-understood, and fit for purpose.</p>
 
-    <div class="tenor-grid">
-      <div class="tenor-item">
+    <div class="spec-grid">
+      <div class="spec-item">
         <h4>Data Governance Frameworks</h4>
         <p>Ownership models, data stewardship, policy definition, and accountability structures. Designed to embed governance into how the organisation actually operates, not as a parallel bureaucracy.</p>
       </div>
-      <div class="tenor-item">
+      <div class="spec-item">
         <h4>Data Quality &amp; Standards</h4>
         <p>Profiling, quality rules, lineage mapping, and remediation. Establishing measurable standards so data quality becomes visible, tracked, and continuously improved.</p>
       </div>
-      <div class="tenor-item">
+      <div class="spec-item">
         <h4>Data Analysis &amp; Insight</h4>
         <p>Analytical capability embedded within business teams. Requirements-driven analysis, reporting design, and the bridge between raw data and informed decision-making.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="tenor-tools">
-      <span>Data Governance</span>
-      <span>Data Quality Management</span>
-      <span>Data Lineage</span>
-      <span>Data Cataloguing</span>
-      <span>Business Intelligence</span>
-      <span>Regulatory Data Requirements</span>
+<!-- SCALE -->
+<section class="specialist-section scale-bg" id="scale">
+  <div class="specialist-inner">
+    <div class="section-label">Resource Architecture</div>
+    <div class="product-name">SCALE</div>
+    <div class="product-sub">The capability envelope of humans, tools, platforms, and AI agents.</div>
+
+    <p class="body-text">Most organisations know what work needs doing but not what combination of people, tools, platforms, and AI agents should do it. SCALE maps the full resource landscape and designs the architecture that determines who and what performs each capability, at what level of autonomy, and with what fallback.</p>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <h4>Resource Landscape Mapping</h4>
+        <p>A structured view of every resource type available to the organisation: human roles, tooling, platforms, automation, and AI. Classified by capability, availability, and cost.</p>
+      </div>
+      <div class="spec-item">
+        <h4>Capability Envelope Design</h4>
+        <p>Defining what each resource type can and cannot do, under what conditions, and at what quality threshold. The foundation for allocation decisions that actually hold under pressure.</p>
+      </div>
+      <div class="spec-item">
+        <h4>AI Agent Architecture</h4>
+        <p>Where AI agents fit within the resource envelope. What they can own, what they assist, where human oversight is required, and how handoffs between human and machine are governed.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STAVR -->
-<section class="stavr-section" id="stavr">
-  <div class="stavr-inner">
-    <div class="section-label">Framework &amp; IP</div>
-    <div class="product-name">STAVR<span>.</span></div>
-    <div class="stavr-full">Sequential Task Attention, Verification &amp; Recovery</div>
+<!-- SCORE -->
+<section class="specialist-section score-bg" id="score">
+  <div class="specialist-inner">
+    <div class="section-label">Operating Model &amp; Governance</div>
+    <div class="product-name">SCORE</div>
+    <div class="product-sub">How the organisation actually runs.</div>
 
-    <div class="stavr-quote">
-      A framework for encoding how experts execute tasks reliably under uncertainty by formalising attention, verification, and recovery. Independent of domain or platform.
-    </div>
+    <p class="body-text">An operating model that lives in a slide deck is not an operating model. SCORE designs the process architecture, governance structures, and human-machine allocation that determine how work actually gets done. It is where PULSE framework IP is most directly applied: encoding reliable execution into the operating fabric of the organisation.</p>
 
-    <p class="stavr-body">Most AI and robotics systems focus on two layers: perception (what is happening) and control (how to act). Between them sits a third, largely unaddressed problem: expert execution logic under uncertainty.</p>
-
-    <p class="stavr-body">STAVR is that missing layer. It is a universal skill execution layer that other systems can consume. Not a robotics control system, not a workflow engine, not a model training pipeline.</p>
-
-    <!-- Gap Diagram -->
-    <div class="stavr-diagram">
-      <div class="layer-stack">
-        <div class="layer-row existing">
-          <div class="layer-label">Perception</div>
-          <div class="layer-content">
-            <span class="chip">Sensor data</span>
-            <span class="chip">Object recognition</span>
-            <span class="chip">Spatial mapping</span>
-            <span class="chip">State detection</span>
-          </div>
-        </div>
-        <div class="gap-arrow">the gap: no existing framework addresses this</div>
-        <div class="layer-row gap">
-          <div class="layer-label">STAVR</div>
-          <div class="layer-content">
-            <span class="stavr-provides-label">Execution reasoning layer</span>
-            <span class="chip">Attention Contracts</span>
-            <span class="chip">Two-layer Tolerance</span>
-            <span class="chip">Typed Verify Gates</span>
-            <span class="chip">Viable Recovery</span>
-            <span class="chip">Refuse Logic</span>
-          </div>
-        </div>
-        <div class="gap-arrow">feeds into</div>
-        <div class="layer-row existing">
-          <div class="layer-label">Control</div>
-          <div class="layer-content">
-            <span class="chip">Motor commands</span>
-            <span class="chip">Path planning</span>
-            <span class="chip">Force control</span>
-            <span class="chip">Sequencing</span>
-          </div>
-        </div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <h4>Process Architecture</h4>
+        <p>End-to-end process design that specifies not just the sequence of activities but the attention, verification, and recovery logic at each step. Process that works when conditions are imperfect.</p>
+      </div>
+      <div class="spec-item">
+        <h4>Governance Design</h4>
+        <p>Decision rights, escalation paths, accountability structures, and the control framework that keeps the operating model honest. Governance as an enabler, not an overhead.</p>
+      </div>
+      <div class="spec-item">
+        <h4>Human-Machine Allocation</h4>
+        <p>Which tasks belong to people, which to machines, and which to a governed combination. Allocation decisions grounded in capability, risk, and the tolerance model, not assumption or cost alone.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- IP Stack -->
-    <div class="ip-stack">
-      <p class="ip-label">IP Stack</p>
-      <div class="ip-item">
-        <h4>Framework Specification</h4>
-        <p>The grammar and reasoning layer. Core IP. Licensed to platform integrators.</p>
+<!-- PULSE -->
+<section class="pulse-section" id="pulse">
+  <div class="pulse-inner">
+    <div class="section-label">Licensed Framework IP</div>
+    <img src="pulsebanner.png" alt="PULSE: A specification framework for expert task execution" class="pulse-banner">
+
+    <div class="pulse-quote">
+      A domain-agnostic framework for encoding reliable task execution under real-world conditions. Structured around task units, typed contracts, attention mechanisms, environment checks, resource classification, and pre-specified recovery paths.
+    </div>
+
+    <p class="pulse-body">Most organisations hold their critical execution knowledge in people's heads, in undocumented habits, and in tribal expertise that walks out of the door when someone leaves. PULSE captures that tacit and skill-based knowledge and converts it into durable, AI-consumable organisational assets.</p>
+
+    <p class="pulse-body">PULSE output is both human-readable and machine-consumable. It replaces process and procedure documentation while operationalising (not replacing) policy. The target audience is business analysts and operating model designers at regulated enterprise customers.</p>
+
+    <div class="pulse-features">
+      <div class="pulse-feature">
+        <h4>Task Units</h4>
+        <p>Structured execution blocks with typed contracts, attention mechanisms, and pre-specified recovery paths.</p>
       </div>
-      <div class="ip-item">
-        <h4>Reference Contract Schema</h4>
-        <p>The standard for making product data machine-reasoning-ready. Brands publish their own contracts to this schema.</p>
+      <div class="pulse-feature">
+        <h4>Attention Contracts</h4>
+        <p>What to focus on, when, and what triggers a shift. Typed, explicit, with shift conditions.</p>
       </div>
-      <div class="ip-item">
-        <h4>Fixing Specification Table</h4>
-        <p>Tacit expert knowledge: screw, bit, torque per scenario. Not published by any retailer. Highest individual asset value.</p>
+      <div class="pulse-feature">
+        <h4>Two-layer Tolerance</h4>
+        <p>Contract ceiling and user threshold. Deviation is measured, not guessed. Recovery is pre-specified.</p>
       </div>
-      <div class="ip-item">
-        <h4>Task Intelligence Packages</h4>
-        <p>Domain-specific execution chains. Subscription or per-deployment licensing.</p>
+      <div class="pulse-feature">
+        <h4>Environment Checks</h4>
+        <p>Two-tier model with event-based session boundaries. Conditions verified before and during execution.</p>
+      </div>
+      <div class="pulse-feature">
+        <h4>Resource Classification</h4>
+        <p>Mandatory, recommended, conditional. Each with named absence responses. Readiness checks assess capabilities, not inventory.</p>
+      </div>
+      <div class="pulse-feature">
+        <h4>Verify, Recover, Refuse</h4>
+        <p>Typed verification gates, viable recovery confirmed before execution begins, and first-class refuse logic.</p>
       </div>
     </div>
 
-    <p class="ip-label" style="margin-top:2.5rem;">Target Integrators</p>
-    <div class="target-tags">
-      <span>Robotics Middleware</span>
-      <span>Construction &amp; Proptech</span>
-      <span>AI Application Builders</span>
-      <span>Industrial Automation</span>
+    <div class="pulse-tags">
+      <span>Licensed Framework</span>
+      <span>Enterprise Customers</span>
+      <span>Regulated Industries</span>
+      <span>AI Execution Layer</span>
+      <span>Human-Readable &amp; Machine-Consumable</span>
     </div>
   </div>
 </section>
@@ -583,9 +610,9 @@
 <section class="s" id="about">
   <hr class="section-rule">
   <div class="section-label">The firm</div>
-  <h2 >About Veziroglu</h2>
+  <img src="Veziroglu_Consulting_Logo.png" alt="Veziroglu Consulting" class="about-logo">
   <p class="lead">A boutique consultancy founded on a decade-plus track record of delivering complex change in financial services and regulated industries.</p>
-  <p class="body-text">FORTE grew from hands-on programme delivery experience across private banking, enterprise content management, and large-scale digital transformation. TENOR grew from repeatedly seeing transformation programmes undermined by ungoverned data. STAVR grew from the realisation that the expert reasoning behind reliable execution, the layer between knowing what to do and doing it right, had never been formalised.</p>
+  <p class="body-text">FORTE grew from hands-on programme delivery experience across private banking, enterprise content management, and large-scale digital transformation. TENOR grew from repeatedly seeing transformation programmes undermined by ungoverned data. SCALE and SCORE emerged from the recognition that operating models need to account for AI agents alongside human resources. PULSE grew from the realisation that the expert reasoning behind reliable execution had never been formalised as a portable, licensable framework.</p>
   <div class="cred-row">
     <span class="cred-tag">TOGAF Certified</span>
     <span class="cred-tag">Business Architecture</span>
@@ -610,8 +637,8 @@
 <section class="contact-section" id="contact">
   <div class="section-label">Get in touch</div>
   <h2>Let's talk.</h2>
-  <p>Whether you need transformation delivery through FORTE, data governance through TENOR, or you're exploring STAVR as a framework for your platform.</p>
-  <a href="mailto:emrah&#64;veziroglu.co.uk" class="contact-email">emrah&#64;veziroglu.co.uk</a>
+  <p>Whether you need outcome-led delivery through FORTE, specialist capability in data, resource, or operating model design, or you're exploring PULSE as a licensed framework.</p>
+  <a href="mailto:info&#64;veziroglu.co.uk" class="contact-email">info&#64;veziroglu.co.uk</a>
 </section>
 
 <footer>
@@ -623,7 +650,6 @@
   window.addEventListener('scroll', function() {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
-
   var hamburger = document.querySelector('.hamburger');
   var navLinks = document.querySelector('.nav-links');
   hamburger.addEventListener('click', function() {
@@ -635,7 +661,6 @@
       navLinks.classList.remove('open');
     });
   }
-
 </script>
 </body>
 </html>
