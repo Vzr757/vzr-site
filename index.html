@@ -2,629 +2,627 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Veziroglu · Boutique Consultancy</title>
 <meta name="description" content="Veziroglu is a boutique consultancy delivering business transformation, data governance, resource architecture, and operating model design. Home of PULSE and OVERTURE.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1a1a;
-    --paper: #f8f6f2;
-    --accent: #b8860b;
-    --accent-light: #d4a843;
-    --muted: #6b6560;
-    --rule: #d6d1ca;
-    --navy: #1E3A5F;
-    --navy-light: #2a5080;
-    --warm: #3a3632;
-    --serif: 'Instrument Serif', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
+    --paper:#f6f4ef; --ink:#14181d; --navy:#1E3A5F; --navy-deep:#12233a; --navy-bg:#0f1a2a;
+    --gold:#b8860b; --gold-light:#d4a843; --gold-dark:#8a6608; --muted:#6b6560; --warm:#4a453f;
+    --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
   }
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--sans); background: var(--paper); color: var(--ink);
-    line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased;
-  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--navy-bg); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a { color:var(--gold-dark); text-decoration:none; }
+  ::selection { background:var(--gold-light); color:var(--navy-deep); }
+  img { max-width:100%; }
+  @keyframes vzHeroIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes vzFade { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+
+  .page { font-family:var(--sans); background:var(--paper); color:var(--ink); font-size:16px; line-height:1.65; overflow-x:hidden; }
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    padding: 1.15rem 2rem;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(248,246,242,0.88); backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--rule); transition: box-shadow .3s;
+    position:fixed; top:0; left:0; width:100%; z-index:100; padding:1.4rem 3rem;
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(246,244,239,0.82); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(20,24,29,0.08); transition:box-shadow .4s, padding .4s;
   }
-  nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
-  .logo {
-    display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
-    transition: opacity .2s;
+  nav.scrolled { box-shadow:0 1px 24px rgba(20,24,29,0.08); padding:1rem 3rem; }
+  .logo { display:inline-flex; align-items:stretch; gap:0.16rem; }
+  .logo-v { font-family:var(--serif); color:var(--navy); font-size:3.15rem; line-height:1; display:flex; align-items:center; }
+  .logo-stack { display:flex; flex-direction:column; justify-content:center; }
+  .logo-name { font-family:var(--serif); font-size:1.2rem; letter-spacing:0.14em; color:var(--navy); line-height:1; white-space:nowrap; }
+  .logo-rule { display:block; height:1.5px; background:var(--gold); margin-top:0.32rem; }
+  .logo-sub { text-align:center; font-size:0.5rem; font-weight:600; letter-spacing:0.42em; color:#8a8079; margin-top:0.3rem; padding-left:0.42em; }
+  .nav-links { display:flex; gap:2.4rem; list-style:none; align-items:center; }
+  .nav-link { color:var(--muted); font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; transition:color .25s; }
+  .nav-link:hover { color:var(--ink); }
+  .nav-enquire {
+    display:inline-flex; align-items:center; gap:0.5rem; padding:0.55rem 1.15rem;
+    border:1px solid rgba(20,24,29,0.22); border-radius:2px; color:var(--ink);
+    font-size:0.72rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; transition:all .25s;
   }
-  .logo:hover { opacity: 0.7; }
-  .logo-text {
-    font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
-    letter-spacing: 0.12em; color: var(--navy); line-height: 1.1;
-    display: flex; flex-direction: column;
-  }
-  .logo-rule { display: block; width: 100%; height: 1px; background: var(--accent); margin-top: 0.2rem; }
-  .logo-sub {
-    font-family: var(--sans); font-size: 0.52rem; font-weight: 500;
-    letter-spacing: 0.28em; color: var(--muted); margin-top: 0.15rem;
-  }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
-  .nav-links a {
-    text-decoration: none; color: var(--muted); font-size: 0.8rem; font-weight: 500;
-    letter-spacing: 0.04em; text-transform: uppercase; transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-contact { display: flex; align-items: center; }
-  .hamburger { display: none; background: none; border: none; cursor: pointer; }
-  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; transition: .3s; }
+  .nav-enquire:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .hamburger { display:none; background:none; border:none; cursor:pointer; padding:0.4rem; }
+  .hamburger span { display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; transition:.3s; }
 
   /* ── HERO ── */
-  .hero {
-    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 2rem 4rem; max-width: 1000px; margin: 0 auto;
-    position: relative; z-index: 1;
-  }
-  .hero-wrapper {
-    position: relative; overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 0;
-  }
-  .hero-bg img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: brightness(0.2) saturate(0.5);
-  }
-  .hero-bg::after {
-    content: ''; position: absolute; bottom: 0; left: 0; width: 100%;
-    height: 40%; background: linear-gradient(to top, var(--paper) 0%, transparent 100%);
-  }
-  .page-content { position: relative; z-index: 2; background: var(--paper); }
-  .hero-accent {
-    position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
-    opacity: 0.04; pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem;
-    opacity: 0; animation: fadeUp .8s ease forwards;
-  }
+  .hero { position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; background:var(--navy-deep); }
+  .hero-bg { position:absolute; inset:0; z-index:0; }
+  .hero-bg img { width:100%; height:100%; object-fit:cover; }
+  .hero-veil { position:absolute; inset:0; background:linear-gradient(105deg, rgba(15,26,42,0.88) 0%, rgba(15,26,42,0.55) 42%, rgba(15,26,42,0.15) 70%, transparent 100%); }
+  .hero-fade { position:absolute; left:0; right:0; bottom:0; height:32%; background:linear-gradient(to top, var(--navy-deep) 0%, transparent 100%); }
+  .hero-inner { position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:9rem 3rem 5rem; width:100%; }
+  .hero-content { max-width:760px; }
+  .eyebrow { display:flex; align-items:center; gap:0.9rem; margin-bottom:2rem; }
+  .eyebrow-line { width:34px; height:1px; background:var(--gold-light); }
+  .eyebrow-text { font-size:0.72rem; font-weight:600; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold-light); }
   .hero h1 {
-    font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.8rem);
-    line-height: 1.14; font-weight: 400; letter-spacing: -0.02em;
-    margin-bottom: 1.75rem; opacity: 0; animation: fadeUp .8s ease .15s forwards;
-    color: #fff;
+    font-family:var(--serif); font-size:clamp(2.8rem,5.6vw,4.6rem); line-height:1.06; font-weight:400;
+    letter-spacing:-0.025em; color:var(--paper); margin-bottom:2rem; text-wrap:balance;
   }
-  .hero h1 em { font-style: italic; color: var(--accent-light); }
-  .hero-body {
-    font-size: 1.06rem; color: rgba(255,255,255,0.7); max-width: 660px;
-    margin-bottom: 2.5rem; opacity: 0; animation: fadeUp .8s ease .3s forwards;
-  }
-  .hero-cta {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; max-width: 660px;
-    opacity: 0; animation: fadeUp .8s ease .45s forwards;
-  }
-  .hero-block {
-    display: block; padding: 1.5rem; border-radius: 3px;
-    text-decoration: none; transition: all .25s;
-  }
-  .hero-block-title {
-    font-family: var(--sans); font-size: 0.82rem; font-weight: 700;
-    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
-  }
-  .hero-block-desc { font-size: 0.82rem; line-height: 1.5; }
-  .hero-block.block-services {
-    background: var(--warm); color: var(--paper); border: 2px solid var(--warm);
-  }
-  .hero-block.block-services:hover { background: var(--accent); border-color: var(--accent); }
-  .hero-block.block-services .hero-block-desc { color: rgba(255,255,255,0.7); }
-  .hero-block.block-products {
-    background: var(--navy); color: #fff; border: 2px solid var(--navy);
-  }
-  .hero-block.block-products:hover { background: var(--navy-light); border-color: var(--navy-light); }
-  .hero-block.block-products .hero-block-desc { color: rgba(255,255,255,0.65); }
+  .hero h1 em { font-style:italic; color:var(--gold-light); }
+  .hero-lead { font-size:1.12rem; line-height:1.65; color:rgba(246,244,239,0.72); max-width:600px; margin-bottom:3rem; }
+  .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; }
+  .anim-1 { opacity:0; animation:vzHeroIn .9s ease .05s forwards; }
+  .anim-2 { opacity:0; animation:vzHeroIn .9s ease .18s forwards; }
+  .anim-3 { opacity:0; animation:vzHeroIn .9s ease .3s forwards; }
+  .anim-4 { opacity:0; animation:vzHeroIn .9s ease .42s forwards; }
+  .anim-5 { opacity:0; animation:vzHeroIn 1s ease .7s forwards; }
+  .btn { display:inline-flex; align-items:center; gap:0.6rem; padding:0.95rem 1.8rem; font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; border-radius:2px; transition:all .25s; cursor:pointer; }
+  .btn-gold { background:var(--gold-light); color:var(--navy-deep); border:1px solid var(--gold-light); }
+  .btn-gold:hover { background:var(--paper); border-color:var(--paper); transform:translateY(-2px); }
+  .btn-outline { border:1px solid rgba(246,244,239,0.3); color:var(--paper); }
+  .btn-outline:hover { border-color:var(--gold-light); color:var(--gold-light); }
+  .scroll-ind { position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:0.6rem; }
+  .scroll-ind span:first-child { font-size:0.6rem; font-weight:600; letter-spacing:0.24em; text-transform:uppercase; color:rgba(246,244,239,0.45); }
+  .scroll-bar { width:1px; height:34px; background:linear-gradient(to bottom, var(--gold-light), transparent); }
 
-  /* ── SECTIONS ── */
-  .s { padding: 5.5rem 2rem; max-width: 1000px; margin: 0 auto; }
-  .section-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 3.5rem; }
-  .section-label {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;
-  }
-  .s h2 {
-    font-family: var(--serif); font-size: clamp(1.7rem, 3.2vw, 2.4rem);
-    font-weight: 400; line-height: 1.2; letter-spacing: -0.015em; margin-bottom: 1.25rem;
-  }
-  .s p.lead { font-size: 1rem; color: var(--muted); max-width: 660px; margin-bottom: 2.5rem; }
-  .body-text { color: var(--muted); max-width: 660px; line-height: 1.75; margin-bottom: 1.25rem; }
+  /* ── SECTION SHELL ── */
+  .section { max-width:1180px; margin:0 auto; padding:7.5rem 3rem 4rem; }
+  .kicker { display:flex; align-items:center; gap:0.9rem; margin-bottom:1.5rem; }
+  .kicker-num { font-family:var(--serif); font-size:1rem; color:var(--gold); font-style:italic; }
+  .kicker-line { width:28px; height:1px; background:var(--gold); }
+  .kicker-text { font-size:0.7rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); }
+  .section-h2 { font-family:var(--serif); font-size:clamp(2rem,3.6vw,3rem); font-weight:400; line-height:1.1; letter-spacing:-0.02em; max-width:620px; }
+  .practices-head { display:flex; align-items:flex-end; justify-content:space-between; gap:2rem 3rem; flex-wrap:wrap; margin-bottom:3.5rem; border-bottom:1px solid rgba(20,24,29,0.12); padding-bottom:2.5rem; }
+  .practices-head-l { flex:1 1 460px; }
+  .practices-head-p { flex:1 1 300px; font-size:0.95rem; color:var(--muted); line-height:1.7; align-self:flex-end; }
+  .practices-head-p strong { color:var(--ink); font-weight:600; }
 
-  /* ── SERVICE CARDS ── */
-  .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .service-card {
-    border: 1px solid var(--rule); border-radius: 3px; overflow: hidden;
-    transition: border-color .25s, box-shadow .25s;
-    text-decoration: none; color: inherit; display: block;
-  }
-  .service-card:hover { border-color: var(--warm); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-  .service-card-img {
-    width: 100%; height: 140px; object-fit: cover;
-    filter: brightness(0.7) saturate(0.8);
-    transition: filter .3s;
-  }
-  .service-card:hover .service-card-img { filter: brightness(0.8) saturate(1); }
-  .service-card-body { padding: 1.75rem; }
-  .card-desc {
-    font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
-    color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3;
-  }
-  .practice-badge {
-    display: inline-block; padding: 0.2rem 0.6rem;
-    font-family: var(--sans); font-size: 0.62rem; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    background: var(--ink); color: var(--paper); border-radius: 2px;
-    margin-bottom: 0.75rem;
-  }
-  .service-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
+  /* ── CARDS ── */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; animation:vzFade .5s ease; }
+  .card { display:flex; flex-direction:column; background:var(--navy-deep); border:1px solid rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; cursor:pointer; transition:border-color .3s, box-shadow .3s, transform .3s; text-align:left; font-family:var(--sans); }
+  .card:hover { border-color:rgba(184,134,11,0.5); box-shadow:0 20px 52px -22px rgba(18,35,58,0.6); transform:translateY(-3px); }
+  .card-media { position:relative; height:118px; overflow:hidden; }
+  .card-media img { width:100%; height:100%; object-fit:cover; display:block; }
+  .card-media-veil { position:absolute; inset:0; background:linear-gradient(to bottom, transparent 35%, var(--navy-deep) 100%); }
+  .card-icon { position:relative; height:118px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .card-icon.pulse-bg { background:linear-gradient(135deg,var(--navy),var(--navy-deep)); }
+  .card-icon.overture-bg { background:linear-gradient(135deg,#20242b,#14181d); }
+  .card-icon-glow { position:absolute; top:-40px; right:-40px; width:150px; height:150px; border-radius:50%; }
+  .card-icon.pulse-bg .card-icon-glow { background:radial-gradient(circle, rgba(212,168,67,0.2), transparent 70%); }
+  .card-icon.overture-bg .card-icon-glow { background:radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%); }
+  .card-body { padding:0.4rem 1.9rem 1.9rem; }
+  .card-body.pad-top { padding-top:1.5rem; }
+  .card-tag { display:flex; align-items:center; gap:0.7rem; margin-bottom:0.75rem; }
+  .card-tag-num { font-size:0.62rem; font-weight:700; letter-spacing:0.16em; color:var(--gold-light); }
+  .card-tag-name { font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--paper); }
+  .card-title { font-family:var(--serif); font-size:1.4rem; line-height:1.2; letter-spacing:-0.01em; margin-bottom:0.55rem; color:var(--paper); }
+  .card-desc { font-size:0.88rem; color:rgba(246,244,239,0.6); line-height:1.6; margin-bottom:1.15rem; }
+  .card-more { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-light); }
 
-  /* ── PRODUCT CARDS ── */
-  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  .product-card {
-    border-radius: 3px; padding: 2rem;
-    transition: box-shadow .25s, transform .25s;
-    text-decoration: none; color: inherit; display: block;
-    position: relative; overflow: hidden;
-  }
-  .product-card::before {
-    content: ''; position: absolute; top: -40px; right: -40px;
-    width: 160px; height: 160px; border-radius: 50%;
-    opacity: 0.06; pointer-events: none;
-  }
-  .product-card:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,0,0,0.1); }
+  /* ── DETAIL VIEW ── */
+  .detail { animation:vzFade .5s ease; }
+  .detail-bar { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:2.75rem; }
+  .detail-tabs { display:flex; gap:0.6rem; flex-wrap:wrap; }
+  .tab { display:inline-flex; align-items:center; gap:0.5rem; padding:0.62rem 1.15rem; border-radius:2px; font-family:var(--sans); font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; transition:all .25s; background:transparent; color:var(--muted); border:1px solid rgba(20,24,29,0.18); }
+  .tab:hover { border-color:var(--navy-deep); color:var(--ink); }
+  .tab.active { background:var(--navy-deep); color:var(--paper); border-color:var(--navy-deep); }
+  .tab span { opacity:0.55; }
+  .link-back { display:inline-flex; align-items:center; gap:0.5rem; background:none; border:none; cursor:pointer; font-family:var(--sans); font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); transition:color .25s; }
+  .link-back:hover { color:var(--ink); }
+  .detail-grid { display:grid; grid-template-columns:0.85fr 1.15fr; gap:3.5rem; align-items:start; border-top:1px solid rgba(20,24,29,0.12); padding-top:3rem; }
+  .detail-media { position:relative; height:230px; border-radius:4px; overflow:hidden; background:var(--navy-deep); margin-bottom:1.9rem; }
+  .detail-media img { width:100%; height:100%; object-fit:cover; }
+  .detail-media-veil { position:absolute; inset:0; background:linear-gradient(to top, rgba(18,35,58,0.6), transparent 55%); }
+  .detail-tag { display:flex; align-items:center; gap:0.7rem; margin-bottom:0.55rem; }
+  .detail-tag-num { font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--gold); }
+  .detail-tag-name { font-family:var(--sans); font-size:1.35rem; font-weight:700; letter-spacing:0.12em; color:var(--ink); }
+  .detail-title { font-family:var(--serif); font-size:1.3rem; line-height:1.25; letter-spacing:-0.01em; color:var(--ink); }
+  .detail-blurb { font-size:1.02rem; color:var(--warm); line-height:1.8; margin-bottom:2.25rem; }
+  .item-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; }
+  .item { border-left:2px solid var(--gold); padding-left:1.2rem; }
+  .item h4 { font-family:var(--sans); font-size:0.95rem; font-weight:600; color:var(--ink); margin-bottom:0.4rem; }
+  .item p { font-size:0.86rem; color:var(--muted); line-height:1.6; }
 
-  .product-card.card-pulse { background: var(--navy); border: 1px solid var(--navy); }
-  .product-card.card-pulse::before { background: radial-gradient(circle, var(--accent) 0%, transparent 70%); }
-  .product-card.card-pulse .practice-badge { background: rgba(255,255,255,0.15); color: #fff; }
-  .product-card.card-pulse .card-desc { color: #fff; }
-  .product-card.card-pulse p { color: rgba(255,255,255,0.65); }
-  .product-card.card-pulse .card-arrow { color: var(--accent-light); }
+  /* PULSE detail */
+  .pulse-detail { border-top:1px solid rgba(20,24,29,0.12); padding-top:3rem; }
+  .pulse-banner { max-width:820px; margin-bottom:2.25rem; }
+  .pulse-banner img { width:100%; border-radius:3px; display:block; }
+  .pulse-quote { font-family:var(--serif); font-size:1.35rem; font-style:italic; color:var(--gold-dark); line-height:1.5; border-left:2px solid var(--gold); padding-left:1.75rem; margin-bottom:2.25rem; max-width:720px; }
+  .pulse-p { color:var(--warm); max-width:720px; line-height:1.8; margin-bottom:1.25rem; }
+  .pulse-items { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-top:2.75rem; }
+  .pulse-items h4 { font-size:0.92rem; font-weight:600; color:var(--ink); margin-bottom:0.35rem; }
+  .pulse-items p { font-size:0.84rem; color:var(--muted); line-height:1.6; }
+  .overture-media { position:relative; height:230px; border-radius:4px; overflow:hidden; background:linear-gradient(135deg,#20242b,#14181d); display:flex; align-items:center; justify-content:center; margin-bottom:1.9rem; }
+  .visit-btn { display:inline-flex; align-items:center; gap:0.6rem; padding:0.95rem 1.8rem; background:var(--ink); color:var(--paper); font-size:0.76rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; border-radius:2px; transition:all .25s; }
+  .visit-btn:hover { background:var(--gold); color:var(--navy-deep); }
 
-  .product-card.card-overture { background: var(--ink); border: 1px solid var(--ink); }
-  .product-card.card-overture::before { background: radial-gradient(circle, #fff 0%, transparent 70%); }
-  .product-card.card-overture .practice-badge { background: rgba(255,255,255,0.12); color: #fff; }
-  .product-card.card-overture .card-desc { color: #fff; }
-  .product-card.card-overture p { color: rgba(255,255,255,0.6); }
-  .product-card.card-overture .card-arrow { color: var(--accent-light); }
+  /* ── ABOUT ── */
+  .about-grid { display:grid; grid-template-columns:0.9fr 1.1fr; gap:4rem; align-items:start; }
+  .about-logo { width:190px; height:auto; border-radius:4px; display:block; margin-bottom:2rem; }
+  .about-statement { font-family:var(--serif); font-size:1.45rem; font-weight:400; line-height:1.4; letter-spacing:-0.01em; color:var(--ink); }
+  .about-body { font-size:1rem; color:var(--warm); line-height:1.8; margin-bottom:1.5rem; }
+  .tag-row { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:2rem; }
+  .tag { padding:0.5rem 1rem; border:1px solid rgba(20,24,29,0.14); border-radius:2px; font-size:0.76rem; font-weight:500; color:var(--muted); }
+  .tag-row-2 { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1rem; }
+  .tag-navy { padding:0.45rem 1rem; background:var(--navy); color:var(--paper); font-size:0.74rem; font-weight:500; border-radius:2px; }
 
-  .card-arrow {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
-    text-transform: uppercase; color: var(--accent); margin-top: 1rem;
-    transition: gap .2s;
-  }
-  .product-card:hover .card-arrow { gap: 0.7rem; }
+  /* ── CONTACT ── */
+  .contact { background:var(--ink); color:var(--paper); padding:7.5rem 3rem; text-align:center; }
+  .contact-inner { max-width:680px; margin:0 auto; }
+  .contact-kicker { display:inline-flex; align-items:center; gap:0.9rem; margin-bottom:1.75rem; }
+  .contact-kicker span:first-child, .contact-kicker span:last-child { width:28px; height:1px; background:var(--gold-light); }
+  .contact-kicker-text { font-size:0.7rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-light); }
+  .contact h2 { font-family:var(--serif); font-size:clamp(2.2rem,4vw,3.4rem); font-weight:400; letter-spacing:-0.02em; color:var(--paper); margin-bottom:1.25rem; }
+  .contact p { color:rgba(246,244,239,0.6); max-width:500px; margin:0 auto 2.5rem; font-size:1rem; line-height:1.7; }
+  .email-link { font-family:var(--serif); font-size:clamp(1.4rem,2.6vw,2rem); color:var(--gold-light); border-bottom:1px solid transparent; transition:border-color .25s; }
+  .email-link:hover { border-color:var(--gold-light); }
+  .contact-social { margin-top:2rem; }
+  .contact-social a { display:inline-flex; color:rgba(246,244,239,0.4); transition:color .25s; }
+  .contact-social a:hover { color:var(--gold-light); }
+  footer { background:var(--ink); color:rgba(246,244,239,0.4); padding:2.25rem 3rem; text-align:center; font-size:0.75rem; border-top:1px solid rgba(246,244,239,0.1); }
 
-  /* ── DETAIL SECTIONS ── */
-  .product-name {
-    font-family: var(--sans); font-size: 1.7rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem;
-  }
-  .product-sub {
-    font-size: 0.82rem; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 1.75rem;
-  }
+  .hidden { display:none !important; }
+  [data-reveal] { opacity:0; transform:translateY(26px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); will-change:opacity, transform; }
+  [data-reveal].revealed { opacity:1; transform:none; }
 
-  .section-hero-img {
-    width: 100%; height: 280px; object-fit: cover; border-radius: 4px;
-    margin-bottom: 2.5rem;
-    filter: brightness(0.75) saturate(0.85);
+  /* ── RESPONSIVE ── */
+  @media (max-width:900px) {
+    .grid-2 { grid-template-columns:1fr; }
+    .detail-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+    .pulse-items { grid-template-columns:1fr 1fr; }
   }
-
-  /* SDLC */
-  .sdlc-visual { margin: 2.5rem 0; overflow-x: auto; }
-  .sdlc-pipeline { display: flex; gap: 0; min-width: 720px; }
-  .sdlc-phase {
-    flex: 1; padding: 1.25rem 0.6rem; text-align: center;
-    transition: transform .2s;
+  @media (max-width:640px) {
+    nav, nav.scrolled { padding:0.9rem 1.25rem; }
+    .nav-links { gap:1rem; }
+    .nav-link { display:none; }
+    .logo-v { font-size:2.5rem; }
+    .logo-name { font-size:1rem; }
+    .section { padding:5rem 1.5rem 3rem; }
+    .hero-inner { padding:7rem 1.5rem 4rem; }
+    .item-grid, .pulse-items { grid-template-columns:1fr; }
+    .contact { padding:5rem 1.5rem; }
+    .practices-head { display:block; }
+    .practices-head-p { margin-top:1.5rem; }
   }
-  .sdlc-phase:hover { transform: translateY(-2px); }
-  .sdlc-phase .phase-name {
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; margin-bottom: 0.35rem;
-  }
-  .sdlc-phase .phase-desc { font-size: 0.7rem; line-height: 1.4; opacity: 0.85; }
-  .sdlc-phase.forte { background: var(--ink); color: var(--paper); }
-  .sdlc-phase.forte .phase-name { color: var(--accent-light); }
-  .sdlc-phase.governed { background: #e8e4de; color: var(--muted); }
-  .sdlc-phase:first-child { border-radius: 3px 0 0 3px; }
-  .sdlc-phase:last-child { border-radius: 0 3px 3px 0; }
-  .sdlc-legend {
-    display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.74rem; color: var(--muted);
-  }
-  .sdlc-legend .dot {
-    display: inline-block; width: 10px; height: 10px; border-radius: 2px;
-    margin-right: 0.5rem; vertical-align: middle;
-  }
-  .sdlc-legend .dot.forte-dot { background: var(--ink); }
-  .sdlc-legend .dot.gov-dot { background: #e8e4de; }
-
-  .outcome-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 1.75rem; margin-top: 2.25rem;
-  }
-  .outcome-item { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
-  .outcome-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; }
-  .outcome-item p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
-
-  .tools-row { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
-  .tools-row span {
-    padding: 0.4rem 0.9rem; border: 1px solid var(--rule);
-    font-size: 0.75rem; font-weight: 500; color: var(--muted); border-radius: 2px;
-  }
-
-  /* Specialist sections */
-  .specialist-section { padding: 5.5rem 2rem; }
-  .specialist-inner { max-width: 1000px; margin: 0 auto; }
-  .alt-bg { background: #f2f1ef; }
-  .white-bg { background: var(--paper); }
-
-  .spec-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 1.75rem; margin-top: 2.25rem;
-  }
-  .spec-item { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
-  .spec-item h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.4rem; }
-  .spec-item p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
-
-  /* PULSE */
-  .pulse-section { background: var(--navy); color: var(--paper); padding: 5.5rem 2rem; }
-  .pulse-inner { max-width: 1000px; margin: 0 auto; }
-  .pulse-section .section-label { color: var(--accent-light); }
-  .pulse-section .product-name { color: var(--paper); }
-  .pulse-section .product-sub { color: rgba(255,255,255,0.5); }
-  .pulse-banner { width: 100%; max-width: 800px; margin: 0 0 2.5rem; border-radius: 3px; display: block; }
-  .pulse-quote {
-    font-family: var(--serif); font-size: 1.15rem; font-style: italic;
-    color: var(--accent-light); line-height: 1.5;
-    border-left: 2px solid var(--accent); padding-left: 1.5rem;
-    margin: 2rem 0; max-width: 640px;
-  }
-  .pulse-body { color: rgba(255,255,255,0.75); max-width: 640px; line-height: 1.75; margin-bottom: 1.25rem; }
-  .pulse-features {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem; margin-top: 2.5rem;
-  }
-  .pulse-feature { border-left: 2px solid var(--accent); padding-left: 1.15rem; }
-  .pulse-feature h4 { font-size: 0.9rem; font-weight: 600; color: var(--paper); margin-bottom: 0.3rem; }
-  .pulse-feature p { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
-  .pulse-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2.25rem; }
-  .pulse-tags span {
-    padding: 0.4rem 1rem; border: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.75rem; font-weight: 500; color: rgba(255,255,255,0.7); border-radius: 2px;
-  }
-
-  /* ABOUT */
-  .about-logo { width: 200px; height: auto; border-radius: 4px; margin-bottom: 2rem; display: block; }
-  .cred-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
-  .cred-tag {
-    padding: 0.5rem 1.1rem; border: 1px solid var(--rule); border-radius: 2px;
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; color: var(--muted);
-  }
-  .sector-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
-  .sector-row span {
-    padding: 0.4rem 1rem; background: var(--navy); color: var(--paper);
-    font-size: 0.75rem; font-weight: 500; border-radius: 2px;
-  }
-
-  /* CONTACT */
-  .contact-section { background: var(--ink); color: var(--paper); padding: 5.5rem 2rem; text-align: center; }
-  .contact-section .section-label { color: var(--accent-light); }
-  .contact-section h2 {
-    font-family: var(--serif); font-size: clamp(1.7rem, 3.2vw, 2.4rem);
-    font-weight: 400; margin-bottom: 1rem; color: var(--paper);
-  }
-  .contact-section p { color: #999; max-width: 520px; margin: 0 auto 2.25rem; font-size: 0.95rem; }
-  .contact-email {
-    font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-    color: var(--accent-light); text-decoration: none;
-    border-bottom: 1px solid transparent; transition: border-color .2s;
-  }
-  .contact-email:hover { border-color: var(--accent-light); }
-  .linkedin-link { color: rgba(255,255,255,0.4); transition: color .2s; }
-  .linkedin-link:hover { color: rgba(255,255,255,0.8); }
-
-  footer { padding: 2rem; text-align: center; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--rule); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.25rem; }
-    .nav-links { display: none; }
-    .nav-links.open {
-      display: flex; flex-direction: column; position: absolute;
-      top: 100%; left: 0; width: 100%; background: var(--paper);
-      border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; gap: 1.15rem;
-    }
-    .hamburger { display: block; }
-    .hero { padding: 7rem 1.25rem 3rem; }
-    .hero-cta { grid-template-columns: 1fr; }
-    .s { padding: 3.5rem 1.25rem; }
-    .specialist-section { padding: 3.5rem 1.25rem; }
-    .pulse-section { padding: 3.5rem 1.25rem; }
-    .service-grid { grid-template-columns: 1fr; }
-    .product-grid { grid-template-columns: 1fr; }
-    .contact-section { padding: 3.5rem 1.25rem; }
-    .sdlc-pipeline { min-width: 620px; }
-    .section-hero-img { height: 180px; }
-    .service-card-img { height: 100px; }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-1,.anim-2,.anim-3,.anim-4,.anim-5 { animation:none; opacity:1; }
+    [data-reveal] { transition:none; }
   }
 </style>
 </head>
 <body>
+<div class="page">
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo" aria-label="Veziroglu Consulting">
-    <svg width="26" height="28" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h7.2l8.8 24.5L24.8 0H32L18.2 34h-4.4L0 0z" fill="var(--navy)"/></svg>
-    <span class="logo-text">VEZIROGLU<span class="logo-rule"></span><span class="logo-sub">CONSULTING</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Practices</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact" class="nav-contact" aria-label="Contact"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></a></li>
-  </ul>
-  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<!-- HERO -->
-<div class="hero-wrapper">
-<div class="hero-bg">
-  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=1000&fit=crop&auto=format&q=80" alt="">
-</div>
-<header class="hero">
-  <svg class="hero-accent" width="400" height="420" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h7.2l8.8 24.5L24.8 0H32L18.2 34h-4.4L0 0z" fill="var(--navy)"/></svg>
-  <p class="hero-eyebrow">Boutique Consultancy</p>
-  <h1>We turn <em>structure</em> into outcomes, and encode the expertise behind&nbsp;them.</h1>
-  <p class="hero-body">Veziroglu is a boutique consultancy. We deliver outcome-led transformation through four specialist practices, and build products that encode expert knowledge into durable, AI-consumable assets.</p>
-  <div class="hero-cta">
-    <a href="#services" class="hero-block block-services">
-      <div class="hero-block-title">Practices</div>
-      <div class="hero-block-desc">Outcome-led consulting across transformation, data, resource, and operating model design.</div>
+  <!-- ══ NAV ══ -->
+  <nav id="vzNav">
+    <a href="#top" class="logo" aria-label="Veziroglu Consulting">
+      <span class="logo-v">V</span>
+      <span class="logo-stack">
+        <span class="logo-name">EZIROGLU</span>
+        <span class="logo-rule"></span>
+        <span class="logo-sub">CONSULTING</span>
+      </span>
     </a>
-    <a href="#products" class="hero-block block-products">
-      <div class="hero-block-title">Products</div>
-      <div class="hero-block-desc">Licensed frameworks and software that encode expert knowledge into structured, portable assets.</div>
-    </a>
-  </div>
-</header>
-</div>
+    <ul class="nav-links">
+      <li><a href="#practices" class="nav-link">Practices</a></li>
+      <li><a href="#products" class="nav-link">Products</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#contact" class="nav-enquire">Enquire</a></li>
+    </ul>
+  </nav>
 
-<!-- PAGE CONTENT -->
-<div class="page-content">
-
-<!-- SERVICES -->
-<section class="s" id="services">
-  <hr class="section-rule">
-  <div class="section-label">What we deliver</div>
-  <h2>Four practices. Outcome-led.</h2>
-  <p class="lead">Every engagement is wrapped by FORTE, our delivery practice. TENOR, SCALE, and SCORE provide specialist capability, engaged per scope.</p>
-
-  <div class="service-grid">
-    <a href="#forte" class="service-card">
-      <img class="service-card-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=300&fit=crop&auto=format&q=80" alt="Strategy meeting">
-      <div class="service-card-body">
-        <span class="practice-badge">FORTE</span>
-        <div class="card-desc">Business Transformation &amp; Programme Delivery</div>
-        <p>Outcome-led consulting from capability modelling through to turnkey programme delivery. The engagement wrapper for every project.</p>
+  <!-- ══ HERO ══ -->
+  <header id="top" class="hero">
+    <div class="hero-bg">
+      <img src="images/hero-imagery.webp" alt="" width="2000" height="1250">
+      <div class="hero-veil"></div>
+      <div class="hero-fade"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="eyebrow anim-1">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow-text">Boutique Consultancy</span>
+        </div>
+        <h1 class="anim-2">We turn <em>structure</em> into outcomes — and encode the expertise behind&nbsp;them.</h1>
+        <p class="hero-lead anim-3">Outcome-led transformation through four specialist practices, and products that turn expert knowledge into durable, AI-consumable assets.</p>
+        <div class="hero-cta anim-4">
+          <a href="#practices" class="btn btn-gold">Explore practices
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          <a href="#products" class="btn btn-outline">View products</a>
+        </div>
       </div>
-    </a>
-    <a href="#tenor" class="service-card">
-      <img class="service-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop&auto=format&q=80" alt="Data analytics dashboard">
-      <div class="service-card-body">
-        <span class="practice-badge">TENOR</span>
-        <div class="card-desc">Data Governance &amp; Quality</div>
-        <p>Data governance frameworks, data quality management, and analytical capability. Trusted, governed, actionable data.</p>
+    </div>
+    <div class="scroll-ind anim-5">
+      <span>Scroll</span>
+      <span class="scroll-bar"></span>
+    </div>
+  </header>
+
+  <!-- ══ PRACTICES ══ -->
+  <section id="practices" class="section">
+    <div class="practices-head" data-reveal>
+      <div class="practices-head-l">
+        <div class="kicker">
+          <span class="kicker-num">01</span>
+          <span class="kicker-line"></span>
+          <span class="kicker-text">What we deliver</span>
+        </div>
+        <h2 class="section-h2">Four practices. Every engagement, outcome-led.</h2>
       </div>
-    </a>
-    <a href="#scale" class="service-card">
-      <img class="service-card-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=300&fit=crop&auto=format&q=80" alt="Team collaboration">
-      <div class="service-card-body">
-        <span class="practice-badge">SCALE</span>
-        <div class="card-desc">Resource Architecture</div>
-        <p>The capability envelope of humans, tools, platforms, and AI agents. Who and what does the work, and how they fit together.</p>
+      <p class="practices-head-p">Every engagement is wrapped by <strong>FORTE</strong>, our delivery practice. TENOR, SCALE and SCORE provide specialist capability, engaged per scope.</p>
+    </div>
+
+    <!-- GRID -->
+    <div id="practiceGrid" class="grid-2">
+      <button class="card" type="button" data-practice="forte">
+        <div class="card-media"><img src="images/practice-forte.webp" alt="" width="1200" height="600"><div class="card-media-veil"></div></div>
+        <div class="card-body">
+          <div class="card-tag"><span class="card-tag-num">01</span><span class="card-tag-name">FORTE</span></div>
+          <div class="card-title">Business Transformation &amp; Programme Delivery</div>
+          <p class="card-desc">Outcome-led consulting from capability modelling through to turnkey programme delivery — the engagement wrapper for every project.</p>
+          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </button>
+      <button class="card" type="button" data-practice="tenor">
+        <div class="card-media"><img src="images/practice-tenor.webp" alt="" width="1200" height="600"><div class="card-media-veil"></div></div>
+        <div class="card-body">
+          <div class="card-tag"><span class="card-tag-num">02</span><span class="card-tag-name">TENOR</span></div>
+          <div class="card-title">Data Governance &amp; Quality</div>
+          <p class="card-desc">Data governance frameworks, data quality management, and analytical capability. Trusted, governed, actionable data.</p>
+          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </button>
+      <button class="card" type="button" data-practice="scale">
+        <div class="card-media"><img src="images/practice-scale.webp" alt="" width="1200" height="600"><div class="card-media-veil"></div></div>
+        <div class="card-body">
+          <div class="card-tag"><span class="card-tag-num">03</span><span class="card-tag-name">SCALE</span></div>
+          <div class="card-title">Resource Architecture</div>
+          <p class="card-desc">The capability envelope of humans, tools, platforms, and AI agents. Who and what does the work, and how they fit together.</p>
+          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </button>
+      <button class="card" type="button" data-practice="score">
+        <div class="card-media"><img src="images/practice-score.webp" alt="" width="1200" height="600"><div class="card-media-veil"></div></div>
+        <div class="card-body">
+          <div class="card-tag"><span class="card-tag-num">04</span><span class="card-tag-name">SCORE</span></div>
+          <div class="card-title">Operating Model &amp; Governance</div>
+          <p class="card-desc">Operating model design, process architecture, governance structures, and human-machine allocation.</p>
+          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- DETAIL (JS-populated) -->
+    <div id="practiceDetail" class="detail hidden"></div>
+  </section>
+
+  <!-- ══ PRODUCTS ══ -->
+  <section id="products" class="section" style="padding-top:5.5rem;">
+    <div data-reveal style="margin-bottom:3.5rem;">
+      <div class="kicker">
+        <span class="kicker-num">02</span>
+        <span class="kicker-line"></span>
+        <span class="kicker-text">What we've built</span>
       </div>
-    </a>
-    <a href="#score" class="service-card">
-      <img class="service-card-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=300&fit=crop&auto=format&q=80" alt="Process planning">
-      <div class="service-card-body">
-        <span class="practice-badge">SCORE</span>
-        <div class="card-desc">Operating Model &amp; Governance</div>
-        <p>Operating model design, process architecture, governance structures, and human-machine allocation.</p>
+      <h2 class="section-h2" style="margin-bottom:1.25rem;">Products &amp; intellectual property</h2>
+      <p style="font-size:0.98rem; color:var(--muted); max-width:600px; line-height:1.7;">Licensed frameworks and software that encode expert knowledge into structured, portable, machine-consumable assets.</p>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div id="productGrid" class="grid-2">
+      <button class="card" type="button" data-product="pulse">
+        <div class="card-icon pulse-bg">
+          <div class="card-icon-glow"></div>
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="position:relative;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        </div>
+        <div class="card-body pad-top">
+          <div class="card-tag"><span class="card-tag-num">01</span><span class="card-tag-name">PULSE</span></div>
+          <div class="card-title">Expert Task Execution Framework</div>
+          <p class="card-desc">A domain-agnostic specification framework for encoding reliable task execution under real-world conditions. Licensed to enterprise customers.</p>
+          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </button>
+      <button class="card" type="button" data-product="overture">
+        <div class="card-icon overture-bg">
+          <div class="card-icon-glow"></div>
+          <img src="images/overture-logo-300.png" alt="Overture" width="40" height="40" style="display:block; border-radius:8px; position:relative;">
+        </div>
+        <div class="card-body pad-top">
+          <div class="card-tag"><span class="card-tag-num">02</span><span class="card-tag-name">OVERTURE</span></div>
+          <div class="card-title">M&amp;A Target Discovery</div>
+          <p class="card-desc">Surfaces the long tail of companies that ranked search and prebuilt directories leave off the map. Built for M&amp;A and deal-sourcing analysts.</p>
+          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <div id="productDetail" class="detail hidden">
+      <div class="detail-bar">
+        <div class="detail-tabs">
+          <button class="tab" type="button" data-product-tab="pulse"><span>01</span> PULSE</button>
+          <button class="tab" type="button" data-product-tab="overture"><span>02</span> OVERTURE</button>
+        </div>
+        <button class="link-back" type="button" data-product-close>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+          All products
+        </button>
       </div>
-    </a>
-  </div>
-</section>
 
-<!-- PRODUCTS -->
-<section class="s" id="products">
-  <hr class="section-rule">
-  <div class="section-label">What we've built</div>
-  <h2>Products &amp; IP</h2>
-  <p class="lead">Licensed frameworks and software that encode expert knowledge into structured, portable, machine-consumable assets.</p>
+      <!-- PULSE DETAIL -->
+      <div id="pulseDetail" class="pulse-detail">
+        <div class="kicker" style="margin-bottom:1.5rem;">
+          <span class="detail-tag-num">01</span>
+          <span class="kicker-text">Licensed Framework IP</span>
+        </div>
+        <div class="pulse-banner">
+          <img src="images/pulsebanner.webp" alt="PULSE: A specification framework for expert task execution" width="1568" height="448">
+        </div>
+        <div class="pulse-quote">A domain-agnostic framework for encoding reliable task execution under real-world conditions — task units, typed contracts, attention mechanisms, environment checks, resource classification, and pre-specified recovery paths.</div>
+        <p class="pulse-p">Most organisations hold their critical execution knowledge in people's heads, in undocumented habits, and in tribal expertise that walks out the door when someone leaves. PULSE captures that tacit knowledge and converts it into durable, AI-consumable organisational assets.</p>
+        <p class="pulse-p">PULSE output is both human-readable and machine-consumable. It replaces process and procedure documentation while operationalising — not replacing — policy.</p>
+        <div class="pulse-items">
+          <div class="item"><h4>Task Units</h4><p>Structured execution blocks with typed contracts, attention mechanisms, and pre-specified recovery paths.</p></div>
+          <div class="item"><h4>Attention Contracts</h4><p>What to focus on, when, and what triggers a shift. Typed, explicit, with shift conditions.</p></div>
+          <div class="item"><h4>Two-layer Tolerance</h4><p>Contract ceiling and user threshold. Deviation is measured, not guessed. Recovery is pre-specified.</p></div>
+          <div class="item"><h4>Environment Checks</h4><p>Two-tier model with event-based session boundaries. Conditions verified before and during execution.</p></div>
+          <div class="item"><h4>Resource Classification</h4><p>Mandatory, recommended, conditional — each with named absence responses. Readiness assesses capabilities, not inventory.</p></div>
+          <div class="item"><h4>Verify, Recover, Refuse</h4><p>Typed verification gates, viable recovery confirmed before execution begins, and first-class refuse logic.</p></div>
+        </div>
+      </div>
 
-  <div class="product-grid">
-    <a href="#pulse" class="product-card card-pulse">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:1rem;opacity:0.7;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      <span class="practice-badge">PULSE</span>
-      <div class="card-desc">Expert Task Execution Framework</div>
-      <p>A domain-agnostic specification framework for encoding reliable task execution under real-world conditions. Licensed to enterprise customers.</p>
-      <span class="card-arrow">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-    </a>
-    <a href="https://ovrtr.co.uk" target="_blank" rel="noopener" class="product-card card-overture">
-      <img src="images/overture-logo-300.png" alt="Overture" width="36" height="36" style="display:block;border-radius:6px;margin-bottom:1rem;">
-
-      <span class="practice-badge">OVERTURE</span>
-      <div class="card-desc">M&amp;A Target Discovery</div>
-      <p>Surfaces the long tail of companies that ranked search and prebuilt directories leave off the map. Built for M&amp;A and deal-sourcing analysts.</p>
-      <span class="card-arrow">Visit ovrtr.co.uk <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-    </a>
-  </div>
-</section>
-
-<!-- FORTE DETAIL -->
-<section class="s forte-section" id="forte">
-  <hr class="section-rule">
-  <img class="section-hero-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&h=400&fit=crop&auto=format&q=80" alt="Modern office space">
-  <div class="section-label">Business Transformation &amp; Programme Delivery</div>
-  <div class="product-name">FORTE</div>
-  <div class="product-sub">The engagement wrapper. Outcome-led delivery.</div>
-
-  <p class="body-text">FORTE is how Veziroglu delivers consulting. We don't sell roles or time. We sell outcomes. Every engagement starts with what needs to be true at the end, and works backwards to the architecture, governance, and delivery programme required to get there.</p>
-
-  <div class="sdlc-visual">
-    <div class="sdlc-pipeline">
-      <div class="sdlc-phase forte"><div class="phase-name">Discovery</div><div class="phase-desc">Problem framing, stakeholder mapping, landscape&nbsp;analysis</div></div>
-      <div class="sdlc-phase forte"><div class="phase-name">Requirements</div><div class="phase-desc">Requirements engineering, capability modelling, gap&nbsp;analysis</div></div>
-      <div class="sdlc-phase forte"><div class="phase-name">Architecture</div><div class="phase-desc">TOM design, solution architecture, vendor&nbsp;evaluation</div></div>
-      <div class="sdlc-phase forte"><div class="phase-name">Design</div><div class="phase-desc">Process design, data model, integration&nbsp;specification</div></div>
-      <div class="sdlc-phase governed"><div class="phase-name">Build</div><div class="phase-desc">Development, configuration, platform&nbsp;engineering</div></div>
-      <div class="sdlc-phase forte"><div class="phase-name">Test &amp; QA</div><div class="phase-desc">UAT governance, acceptance criteria, defect&nbsp;triage</div></div>
-      <div class="sdlc-phase forte"><div class="phase-name">Rollout</div><div class="phase-desc">Deployment planning, change management, cutover&nbsp;governance</div></div>
+      <!-- OVERTURE DETAIL -->
+      <div id="overtureDetail" class="pulse-detail hidden">
+        <div class="detail-grid" style="border-top:none; padding-top:0;">
+          <div>
+            <div class="overture-media">
+              <img src="images/overture-logo-300.png" alt="Overture" width="72" height="72" style="border-radius:14px;">
+            </div>
+            <div class="detail-tag"><span class="detail-tag-num">02</span><span class="detail-tag-name">OVERTURE</span></div>
+            <div class="detail-title">M&amp;A Target Discovery</div>
+          </div>
+          <div>
+            <p class="detail-blurb" style="margin-bottom:2rem;">OVERTURE surfaces the long tail of companies that ranked search and prebuilt directories leave off the map. Built for M&amp;A and deal-sourcing analysts, it widens the aperture of a search so the targets everyone else misses become visible.</p>
+            <div class="item-grid" style="margin-bottom:2.5rem;">
+              <div class="item"><h4>Long-tail Discovery</h4><p>Reaches beyond ranked results and curated lists to the companies that never surface in a standard search.</p></div>
+              <div class="item"><h4>Built for Deal Sourcing</h4><p>Purpose-built for M&amp;A and deal-sourcing analysts who need coverage, not just the obvious names.</p></div>
+            </div>
+            <a href="https://ovrtr.co.uk" target="_blank" rel="noopener" class="visit-btn">Visit ovrtr.co.uk
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"></path></svg></a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="sdlc-legend">
-      <span><span class="dot forte-dot"></span>FORTE delivers</span>
-      <span><span class="dot gov-dot"></span>Partner-led (we govern)</span>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about" class="section" style="padding:7rem 3rem;">
+    <div class="about-grid" data-reveal>
+      <div>
+        <div class="kicker">
+          <span class="kicker-num">03</span>
+          <span class="kicker-line"></span>
+          <span class="kicker-text">The firm</span>
+        </div>
+        <img src="images/veziroglu-logo.webp" alt="Veziroglu Consulting" class="about-logo" width="190">
+        <p class="about-statement">A boutique consultancy founded on a decade-plus track record of delivering complex change in financial services and regulated industries.</p>
+      </div>
+      <div>
+        <p class="about-body">FORTE grew from hands-on programme delivery across private banking, enterprise content management, and large-scale digital transformation. TENOR grew from repeatedly seeing transformation programmes undermined by ungoverned data. SCALE and SCORE emerged from the recognition that operating models need to account for AI agents alongside human resources. PULSE grew from the realisation that the expert reasoning behind reliable execution had never been formalised as a portable, licensable framework.</p>
+        <div class="tag-row">
+          <span class="tag">TOGAF Certified</span>
+          <span class="tag">Business Architecture</span>
+          <span class="tag">Requirements Engineering</span>
+          <span class="tag">Private Banking</span>
+          <span class="tag">Programme Management</span>
+          <span class="tag">Data Governance</span>
+          <span class="tag">M365 / Power Platform</span>
+        </div>
+        <div class="tag-row-2">
+          <span class="tag-navy">Banking</span>
+          <span class="tag-navy">Financial Services</span>
+          <span class="tag-navy">Regulated Industries</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="outcome-grid">
-    <div class="outcome-item"><h4>Business Capability Modelling</h4><p>Define what your organisation needs to be able to do, independent of org charts, systems, or current constraints.</p></div>
-    <div class="outcome-item"><h4>Target Operating Model Design</h4><p>Translate strategy into an operating model that specifies capabilities, processes, technology, and governance.</p></div>
-    <div class="outcome-item"><h4>Transformation &amp; Programme Delivery</h4><p>End-to-end programme leadership from idea to turnkey delivery. Platform selection, vendor coordination, steering committee governance, risk management, and phased rollout.</p></div>
-  </div>
-
-  <div class="tools-row">
-    <span>TOGAF</span><span>M365 / Power Platform</span><span>SharePoint Design &amp; Migration</span><span>Power Automate</span><span>Dataverse</span><span>Enterprise Content Management (ECM)</span><span>Customer Communications Management (CCM)</span><span>Vendor Evaluation</span>
-  </div>
-</section>
-
-<!-- TENOR DETAIL -->
-<section class="specialist-section alt-bg" id="tenor">
-  <div class="specialist-inner">
-    <img class="section-hero-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&h=400&fit=crop&auto=format&q=80" alt="Data analytics on screen">
-    <div class="section-label">Data Governance &amp; Quality</div>
-    <div class="product-name">TENOR</div>
-    <div class="product-sub">Trusted data. Governed data. Actionable data.</div>
-    <p class="body-text">Transformation programmes fail when decisions are built on ungoverned data. TENOR establishes the frameworks, standards, and analytical capability to ensure the data your organisation depends on is trustworthy, well-understood, and fit for purpose.</p>
-    <div class="spec-grid">
-      <div class="spec-item"><h4>Data Governance Frameworks</h4><p>Ownership models, data stewardship, policy definition, and accountability structures. Designed to embed governance into how the organisation actually operates.</p></div>
-      <div class="spec-item"><h4>Data Quality &amp; Standards</h4><p>Profiling, quality rules, lineage mapping, and remediation. Establishing measurable standards so data quality becomes visible, tracked, and continuously improved.</p></div>
-      <div class="spec-item"><h4>Data Analysis &amp; Insight</h4><p>Analytical capability embedded within business teams. Requirements-driven analysis, reporting design, and the bridge between raw data and informed decision-making.</p></div>
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="contact">
+    <div class="contact-inner" data-reveal>
+      <div class="contact-kicker">
+        <span></span>
+        <span class="contact-kicker-text">Get in touch</span>
+        <span></span>
+      </div>
+      <h2>Let's talk.</h2>
+      <p>Whether you need consulting delivery, specialist capability, or you're exploring our products for your organisation.</p>
+      <a href="mailto:info@veziroglu.co.uk" class="email-link">info@veziroglu.co.uk</a>
+      <div class="contact-social">
+        <a href="https://www.linkedin.com/company/veziroglu" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SCALE DETAIL -->
-<section class="specialist-section white-bg" id="scale">
-  <div class="specialist-inner">
-    <img class="section-hero-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&h=400&fit=crop&auto=format&q=80" alt="Team working together">
-    <div class="section-label">Resource Architecture</div>
-    <div class="product-name">SCALE</div>
-    <div class="product-sub">The capability envelope of humans, tools, platforms, and AI agents.</div>
-    <p class="body-text">Most organisations know what work needs doing but not what combination of people, tools, platforms, and AI agents should do it. SCALE maps the full resource landscape and designs the architecture that determines who and what performs each capability, at what level of autonomy, and with what fallback.</p>
-    <div class="spec-grid">
-      <div class="spec-item"><h4>Resource Landscape Mapping</h4><p>A structured view of every resource type available to the organisation: human roles, tooling, platforms, automation, and AI. Classified by capability, availability, and cost.</p></div>
-      <div class="spec-item"><h4>Capability Envelope Design</h4><p>Defining what each resource type can and cannot do, under what conditions, and at what quality threshold. The foundation for allocation decisions that hold under pressure.</p></div>
-      <div class="spec-item"><h4>AI Agent Architecture</h4><p>Where AI agents fit within the resource envelope. What they can own, what they assist, where human oversight is required, and how handoffs are governed.</p></div>
-    </div>
-  </div>
-</section>
+  <footer>© 2026 Veziroglu Consulting Ltd. All rights reserved.</footer>
 
-<!-- SCORE DETAIL -->
-<section class="specialist-section alt-bg" id="score">
-  <div class="specialist-inner">
-    <img class="section-hero-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000&h=400&fit=crop&auto=format&q=80" alt="Strategic planning">
-    <div class="section-label">Operating Model &amp; Governance</div>
-    <div class="product-name">SCORE</div>
-    <div class="product-sub">How the organisation actually runs.</div>
-    <p class="body-text">An operating model that lives in a slide deck is not an operating model. SCORE designs the process architecture, governance structures, and human-machine allocation that determine how work actually gets done. It is where PULSE framework IP is most directly applied.</p>
-    <div class="spec-grid">
-      <div class="spec-item"><h4>Process Architecture</h4><p>End-to-end process design that specifies not just the sequence of activities but the attention, verification, and recovery logic at each step.</p></div>
-      <div class="spec-item"><h4>Governance Design</h4><p>Decision rights, escalation paths, accountability structures, and the control framework that keeps the operating model honest. Governance as an enabler, not an overhead.</p></div>
-      <div class="spec-item"><h4>Human-Machine Allocation</h4><p>Which tasks belong to people, which to machines, and which to a governed combination. Allocation decisions grounded in capability, risk, and the tolerance model.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PULSE DETAIL -->
-<section class="pulse-section" id="pulse">
-  <div class="pulse-inner">
-    <div class="section-label">Licensed Framework IP</div>
-    <img src="pulsebanner.png" alt="PULSE: A specification framework for expert task execution" class="pulse-banner">
-    <div class="pulse-quote">A domain-agnostic framework for encoding reliable task execution under real-world conditions. Structured around task units, typed contracts, attention mechanisms, environment checks, resource classification, and pre-specified recovery paths.</div>
-    <p class="pulse-body">Most organisations hold their critical execution knowledge in people's heads, in undocumented habits, and in tribal expertise that walks out of the door when someone leaves. PULSE captures that tacit and skill-based knowledge and converts it into durable, AI-consumable organisational assets.</p>
-    <p class="pulse-body">PULSE output is both human-readable and machine-consumable. It replaces process and procedure documentation while operationalising (not replacing) policy. The target audience is business analysts and operating model designers at regulated enterprise customers.</p>
-    <div class="pulse-features">
-      <div class="pulse-feature"><h4>Task Units</h4><p>Structured execution blocks with typed contracts, attention mechanisms, and pre-specified recovery paths.</p></div>
-      <div class="pulse-feature"><h4>Attention Contracts</h4><p>What to focus on, when, and what triggers a shift. Typed, explicit, with shift conditions.</p></div>
-      <div class="pulse-feature"><h4>Two-layer Tolerance</h4><p>Contract ceiling and user threshold. Deviation is measured, not guessed. Recovery is pre-specified.</p></div>
-      <div class="pulse-feature"><h4>Environment Checks</h4><p>Two-tier model with event-based session boundaries. Conditions verified before and during execution.</p></div>
-      <div class="pulse-feature"><h4>Resource Classification</h4><p>Mandatory, recommended, conditional. Each with named absence responses. Readiness checks assess capabilities, not inventory.</p></div>
-      <div class="pulse-feature"><h4>Verify, Recover, Refuse</h4><p>Typed verification gates, viable recovery confirmed before execution begins, and first-class refuse logic.</p></div>
-    </div>
-    <div class="pulse-tags">
-      <span>Licensed Framework</span><span>Enterprise Customers</span><span>Regulated Industries</span><span>AI Execution Layer</span><span>Human-Readable &amp; Machine-Consumable</span>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="s" id="about">
-  <hr class="section-rule">
-  <div class="section-label">The firm</div>
-  <img src="Veziroglu_Consulting_Logo.png" alt="Veziroglu Consulting" class="about-logo">
-  <p class="lead">A boutique consultancy founded on a decade-plus track record of delivering complex change in financial services and regulated industries.</p>
-  <p class="body-text">FORTE grew from hands-on programme delivery experience across private banking, enterprise content management, and large-scale digital transformation. TENOR grew from repeatedly seeing transformation programmes undermined by ungoverned data. SCALE and SCORE emerged from the recognition that operating models need to account for AI agents alongside human resources. PULSE grew from the realisation that the expert reasoning behind reliable execution had never been formalised as a portable, licensable framework.</p>
-  <div class="cred-row">
-    <span class="cred-tag">TOGAF Certified</span><span class="cred-tag">Business Architecture</span><span class="cred-tag">Requirements Engineering</span><span class="cred-tag">Financial Services</span><span class="cred-tag">Private Banking</span><span class="cred-tag">Programme Management</span><span class="cred-tag">Data Governance</span><span class="cred-tag">M365 / Power Platform</span><span class="cred-tag">Enterprise Content Management (ECM)</span><span class="cred-tag">Customer Communications Management (CCM)</span><span class="cred-tag">Vendor Evaluation</span>
-  </div>
-  <div class="sector-row">
-    <span>Banking</span><span>Financial Services</span><span>Regulated Industries</span>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="section-label">Get in touch</div>
-  <h2>Let's talk.</h2>
-  <p>Whether you need consulting delivery, specialist capability, or you're exploring our products for your organisation.</p>
-  <a href="mailto:info&#64;veziroglu.co.uk" class="contact-email">info&#64;veziroglu.co.uk</a>
-  <div style="margin-top:1.5rem;">
-    <a href="https://www.linkedin.com/company/veziroglu" target="_blank" rel="noopener" aria-label="LinkedIn" class="linkedin-link"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-  </div>
-</section>
-
-<footer>&copy; 2026 Veziroglu Consulting Ltd. All rights reserved.</footer>
 </div>
 
 <script>
-  var nav = document.querySelector('nav');
-  window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); });
-  var hamburger = document.querySelector('.hamburger');
-  var navLinks = document.querySelector('.nav-links');
-  hamburger.addEventListener('click', function() { navLinks.classList.toggle('open'); });
-  var links = navLinks.querySelectorAll('a');
-  for (var i = 0; i < links.length; i++) { links[i].addEventListener('click', function() { navLinks.classList.remove('open'); }); }
+(function () {
+  var PRACTICES = {
+    forte: {
+      idx: '01', name: 'FORTE', title: 'Business Transformation & Programme Delivery', img: 'images/practice-forte.webp',
+      blurb: "FORTE is how Veziroglu delivers consulting. We don't sell roles or time — we sell outcomes. Every engagement starts with what needs to be true at the end, and works backwards to the architecture, governance, and delivery programme required to get there.",
+      items: [
+        { h: 'Business Capability Modelling', p: 'Define what your organisation needs to be able to do, independent of org charts, systems, or current constraints.' },
+        { h: 'Target Operating Model Design', p: 'Translate strategy into an operating model that specifies capabilities, processes, technology, and governance.' },
+        { h: 'Transformation & Programme Delivery', p: 'End-to-end programme leadership from idea to turnkey delivery — platform selection, vendor coordination, steering governance, and phased rollout.' }
+      ]
+    },
+    tenor: {
+      idx: '02', name: 'TENOR', title: 'Data Governance & Quality', img: 'images/practice-tenor.webp',
+      blurb: 'Transformation programmes fail when decisions are built on ungoverned data. TENOR establishes the frameworks, standards, and analytical capability to ensure the data your organisation depends on is trustworthy, well-understood, and fit for purpose.',
+      items: [
+        { h: 'Data Governance Frameworks', p: 'Ownership models, stewardship, policy definition, and accountability structures embedded into how the organisation operates.' },
+        { h: 'Data Quality & Standards', p: 'Profiling, quality rules, lineage mapping, and remediation. Measurable standards, visible and continuously improved.' },
+        { h: 'Data Analysis & Insight', p: 'Analytical capability embedded within business teams — the bridge between raw data and informed decision-making.' }
+      ]
+    },
+    scale: {
+      idx: '03', name: 'SCALE', title: 'Resource Architecture', img: 'images/practice-scale.webp',
+      blurb: 'Most organisations know what work needs doing but not what combination of people, tools, platforms, and AI agents should do it. SCALE maps the full resource landscape and designs the architecture that determines who and what performs each capability.',
+      items: [
+        { h: 'Resource Landscape Mapping', p: 'A structured view of every resource type — human roles, tooling, platforms, automation, and AI — classified by capability, availability, and cost.' },
+        { h: 'Capability Envelope Design', p: 'Defining what each resource can and cannot do, under what conditions, and at what quality threshold. The foundation for allocation that holds under pressure.' },
+        { h: 'AI Agent Architecture', p: 'Where AI agents fit within the resource envelope — what they own, what they assist, and how handoffs are governed.' }
+      ]
+    },
+    score: {
+      idx: '04', name: 'SCORE', title: 'Operating Model & Governance', img: 'images/practice-score.webp',
+      blurb: 'An operating model that lives in a slide deck is not an operating model. SCORE designs the process architecture, governance structures, and human-machine allocation that determine how work actually gets done. It is where PULSE framework IP is most directly applied.',
+      items: [
+        { h: 'Process Architecture', p: 'End-to-end process design that specifies the sequence of activities and the attention, verification, and recovery logic at each step.' },
+        { h: 'Governance Design', p: 'Decision rights, escalation paths, and the control framework that keeps the operating model honest. Governance as enabler, not overhead.' },
+        { h: 'Human-Machine Allocation', p: 'Which tasks belong to people, which to machines, and which to a governed combination — grounded in capability, risk, and tolerance.' }
+      ]
+    }
+  };
+  var ORDER = ['forte', 'tenor', 'scale', 'score'];
+
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  var ARROW_BACK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>';
+
+  function renderPracticeDetail(key) {
+    var d = PRACTICES[key];
+    var tabs = ORDER.map(function (k) {
+      var p = PRACTICES[k];
+      return '<button class="tab' + (k === key ? ' active' : '') + '" type="button" data-practice-tab="' + k + '"><span>' + p.idx + '</span> ' + p.name + '</button>';
+    }).join('');
+    var items = d.items.map(function (it) {
+      return '<div class="item"><h4>' + esc(it.h) + '</h4><p>' + esc(it.p) + '</p></div>';
+    }).join('');
+    return '' +
+      '<div class="detail-bar">' +
+        '<div class="detail-tabs">' + tabs + '</div>' +
+        '<button class="link-back" type="button" data-practice-close>' + ARROW_BACK + ' All practices</button>' +
+      '</div>' +
+      '<div class="detail-grid">' +
+        '<div>' +
+          '<div class="detail-media"><img src="' + d.img + '" alt=""><div class="detail-media-veil"></div></div>' +
+          '<div class="detail-tag"><span class="detail-tag-num">' + d.idx + '</span><span class="detail-tag-name">' + d.name + '</span></div>' +
+          '<div class="detail-title">' + esc(d.title) + '</div>' +
+        '</div>' +
+        '<div>' +
+          '<p class="detail-blurb">' + esc(d.blurb) + '</p>' +
+          '<div class="item-grid">' + items + '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  var practiceGrid = document.getElementById('practiceGrid');
+  var practiceDetail = document.getElementById('practiceDetail');
+
+  function openPractice(key) {
+    if (!PRACTICES[key]) return;
+    practiceDetail.innerHTML = renderPracticeDetail(key);
+    practiceGrid.classList.add('hidden');
+    practiceDetail.classList.remove('hidden');
+  }
+  function closePractice() {
+    practiceDetail.classList.add('hidden');
+    practiceDetail.innerHTML = '';
+    practiceGrid.classList.remove('hidden');
+  }
+
+  practiceGrid.addEventListener('click', function (e) {
+    var card = e.target.closest('[data-practice]');
+    if (card) openPractice(card.getAttribute('data-practice'));
+  });
+  practiceDetail.addEventListener('click', function (e) {
+    var tab = e.target.closest('[data-practice-tab]');
+    if (tab) { openPractice(tab.getAttribute('data-practice-tab')); return; }
+    if (e.target.closest('[data-practice-close]')) closePractice();
+  });
+
+  // ── Products ──
+  var productGrid = document.getElementById('productGrid');
+  var productDetail = document.getElementById('productDetail');
+  var pulseDetail = document.getElementById('pulseDetail');
+  var overtureDetail = document.getElementById('overtureDetail');
+  var productTabs = productDetail.querySelectorAll('[data-product-tab]');
+
+  function showProduct(which) {
+    var isPulse = which === 'pulse';
+    pulseDetail.classList.toggle('hidden', !isPulse);
+    overtureDetail.classList.toggle('hidden', isPulse);
+    productTabs.forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-product-tab') === which);
+    });
+  }
+  function openProduct(which) {
+    showProduct(which);
+    productGrid.classList.add('hidden');
+    productDetail.classList.remove('hidden');
+  }
+  function closeProduct() {
+    productDetail.classList.add('hidden');
+    productGrid.classList.remove('hidden');
+  }
+
+  productGrid.addEventListener('click', function (e) {
+    var card = e.target.closest('[data-product]');
+    if (card) openProduct(card.getAttribute('data-product'));
+  });
+  productDetail.addEventListener('click', function (e) {
+    var tab = e.target.closest('[data-product-tab]');
+    if (tab) { showProduct(tab.getAttribute('data-product-tab')); return; }
+    if (e.target.closest('[data-product-close]')) closeProduct();
+  });
+
+  // ── Nav shadow on scroll ──
+  var nav = document.getElementById('vzNav');
+  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ── Scroll reveal ──
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('revealed'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('revealed'); });
+  }
+})();
 </script>
 </body>
 </html>
