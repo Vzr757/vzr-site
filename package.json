@@ -1,0 +1,13 @@
+{
+  "name": "vzr-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Veziroglu Consulting website — static site served via Cloudflare Workers.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
