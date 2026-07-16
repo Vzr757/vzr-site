@@ -6,7 +6,7 @@
   "assets": {
     // Serve only the built site in public/ (keeps repo tooling out of the deploy).
     "directory": "./public",
-    // Return index.html for unknown paths (single-page site).
-    "not_found_handling": "single-page-application"
+    // Multi-page site: unknown paths must 404, not silently serve the homepage.
+    "not_found_handling": "404-page"
   }
 }
