@@ -100,6 +100,8 @@
 
   /* ── CARDS ── */
   .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; animation:vzFade .5s ease; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .card-sector { font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(246,244,239,0.55); }
   .card { display:flex; flex-direction:column; background:var(--navy-deep); border:1px solid rgba(255,255,255,0.08); border-radius:4px; overflow:hidden; cursor:pointer; transition:border-color .3s, box-shadow .3s, transform .3s; text-align:left; font-family:var(--sans); }
   .card:hover { border-color:rgba(184,134,11,0.5); box-shadow:0 20px 52px -22px rgba(18,35,58,0.6); transform:translateY(-3px); }
   .card-media { position:relative; height:118px; overflow:hidden; }
@@ -189,6 +191,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width:900px) {
     .grid-2 { grid-template-columns:1fr; }
+    .grid-3 { grid-template-columns:1fr 1fr; }
     .detail-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
     .pulse-items { grid-template-columns:1fr 1fr; }
   }
@@ -200,7 +203,7 @@
     .logo-name { font-size:1rem; }
     .section { padding:5rem 1.5rem 3rem; }
     .hero-inner { padding:7rem 1.5rem 4rem; }
-    .item-grid, .pulse-items { grid-template-columns:1fr; }
+    .item-grid, .pulse-items, .grid-3 { grid-template-columns:1fr; }
     .contact { padding:5rem 1.5rem; }
     .practices-head { display:block; }
     .practices-head-p { margin-top:1.5rem; }
@@ -227,6 +230,7 @@
     <ul class="nav-links">
       <li><a href="#practices" class="nav-link">Practices</a></li>
       <li><a href="#products" class="nav-link">Products</a></li>
+      <li><a href="#work" class="nav-link">Case studies</a></li>
       <li><a href="#about" class="nav-link">About</a></li>
       <li><a href="#contact" class="nav-enquire">Enquire</a></li>
     </ul>
@@ -414,6 +418,58 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══ CASE STUDIES ══ -->
+  <section id="work" class="section" style="padding-top:5.5rem;">
+    <div class="practices-head" data-reveal>
+      <div class="practices-head-l">
+        <div class="kicker">
+          <span class="kicker-line"></span>
+          <span class="kicker-text">Selected work</span>
+        </div>
+        <h2 class="section-h2">Case studies</h2>
+      </div>
+      <p class="practices-head-p">Engagements across regulated and charitable sectors — <strong>strategy carried through to delivery</strong>, legacy replaced, and automation right-sized to the problem.</p>
+    </div>
+    <div class="grid-3" data-reveal>
+      <a class="card" href="case-studies/enterprise-journey-architecture.html">
+        <div class="card-body pad-top">
+          <div class="card-tag">
+            <span class="card-tag-num">01</span>
+            <span class="card-sector">Regulated Commercial Lending</span>
+          </div>
+          <div class="card-title">From fragmented journeys to a funded onboarding transformation</div>
+          <div class="card-desc">Operating-model assessment and capability modelling, carried through to the sole business-architecture role on a compliance-critical onboarding delivery.</div>
+          <span class="card-more">Read case study
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </a>
+      <a class="card" href="case-studies/grant-appeals-automation.html">
+        <div class="card-body pad-top">
+          <div class="card-tag">
+            <span class="card-tag-num">02</span>
+            <span class="card-sector">Charitable Grant-Making</span>
+          </div>
+          <div class="card-title">Grant appeals automation, with AI applied proportionately</div>
+          <div class="card-desc">A legacy appeals application replaced with a low-code process non-technical users maintain themselves — and AI used for one well-chosen task, not for its own sake.</div>
+          <span class="card-more">Read case study
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </a>
+      <a class="card" href="case-studies/document-management.html">
+        <div class="card-body pad-top">
+          <div class="card-tag">
+            <span class="card-tag-num">03</span>
+            <span class="card-sector">UK Financial Services</span>
+          </div>
+          <div class="card-title">Enterprise document management, in the flow of work</div>
+          <div class="card-desc">3M+ documents and 300+ daily users moved off an unsupported store, with documents surfaced inside the tools people already use.</div>
+          <span class="card-more">Read case study
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </div>
+      </a>
     </div>
   </section>
 
