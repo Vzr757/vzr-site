@@ -9,6 +9,7 @@ no build step. Served from Cloudflare Workers static assets.
 public/                  <- the deployed site; NOTHING else is served
   index.html             <- homepage (#practices #products #work #about #contact)
                             styles are INLINE in a <style> block, not an external file
+  404.html               <- served on any unmatched path; inline styles, noindex
   assets/                <- case-study.css, case-study.js (case study pages only)
   images/                <- .webp imagery, favicons
   case-studies/          <- one standalone page per case study
@@ -78,23 +79,16 @@ source and re-converted.
 
 ## Gotchas
 
-**Nothing 404s — every URL returns 200.** `wrangler.jsonc` sets
-`not_found_handling: "single-page-application"`, so any unmatched path serves `index.html`
-with a 200:
+**Keep `not_found_handling: "404-page"`.** Unmatched paths serve `public/404.html` with a
+real 404. It was briefly `"single-page-application"`, which made *every* path return 200
+with the homepage — dead links rendered silently, missing assets "passed" health checks,
+and search engines saw soft 404s. Do not set it back; this site is multi-page, not an SPA.
 
-```bash
-curl -o /dev/null -w '%{http_code}' https://consulting.veziroglu.co.uk/nonsense   # -> 200
-```
+Clean URLs (`/case-studies/foo`) come from `html_handling`, a separate setting, and are
+unaffected by this one.
 
-This is wrong for this site (it is multi-page, not an SPA) and has two consequences:
-
-- **A 200 proves nothing exists.** Never verify an asset by status code — check the body.
-  A missing stylesheet returns 200 with HTML in it.
-- Typo'd URLs and dead links silently render the homepage; search engines see soft 404s.
-
-Correct value is `"none"` (real 404s) or `"404-page"` with a `public/404.html`. Clean URLs
-(`/case-studies/foo`) are handled by `html_handling`, not this setting, so changing it
-does not affect them.
+`404.html` styles itself inline on purpose: an error page that depends on an external
+stylesheet breaks in exactly the case where the stylesheet is what went missing.
 
 **Edge caching will lie to you.** After a push, a stale page does *not* mean the deploy
 failed. Verify with a cache-buster before debugging:
