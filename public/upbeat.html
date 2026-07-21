@@ -273,6 +273,14 @@
   var PRODUCT = form.getAttribute('data-product') || 'FORTE';
   var CONTEXT = 'Enquiry via UPBEAT (three-day programme).';
   var MAILTO = 'info@veziroglu.co.uk';
+  // Personal/free email hosts — not a company domain, so never send as `domain` (would mis-dedupe).
+  var FREE_EMAIL = {
+    'gmail.com':1,'googlemail.com':1,'outlook.com':1,'hotmail.com':1,'hotmail.co.uk':1,'live.com':1,
+    'live.co.uk':1,'msn.com':1,'yahoo.com':1,'yahoo.co.uk':1,'ymail.com':1,'icloud.com':1,'me.com':1,
+    'mac.com':1,'aol.com':1,'proton.me':1,'protonmail.com':1,'gmx.com':1,'gmx.co.uk':1,'mail.com':1,
+    'yandex.com':1,'zoho.com':1,'hey.com':1,'fastmail.com':1,'pm.me':1,'btinternet.com':1,'sky.com':1,
+    'virginmedia.com':1,'talktalk.net':1,'ntlworld.com':1,'blueyonder.co.uk':1
+  };
 
   function setStatus(msg, kind) {
     statusEl.textContent = msg || '';
@@ -296,6 +304,8 @@
     }
 
     var body = { product: PRODUCT, company: company, contact_name: name, email: email };
+    var host = (email.split('@')[1] || '').trim().toLowerCase();
+    if (host && host.indexOf('.') !== -1 && !FREE_EMAIL[host]) body.domain = host;
     if (phone) body.phone = phone;
     if (role) body.role = role;
     body.message = note ? (CONTEXT + '\n\n' + note) : CONTEXT;
