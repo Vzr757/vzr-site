@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<title>UPBEAT · Get one process right in three days · Veziroglu</title>
+<meta name="description" content="UPBEAT is a fixed three-day programme to understand one business process properly, exceptions and all, and prove the right fix before you commit to more. £3,000 plus VAT, refunded by unused days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/case-study.css">
+<style>
+  /* ── UPBEAT page-specific ── */
+  #upbeat .upbeat-cta:hover { background:var(--gold); color:var(--navy-deep); transform:translateY(-2px); }
+  @media (max-width:900px) {
+    #upbeat .upbeat-days { grid-template-columns:1fr !important; gap:3rem; }
+    #upbeat .upbeat-day-arc { display:none; }
+    #upbeat .upbeat-gp { grid-template-columns:1fr !important; }
+  }
+  @media (max-width:640px) {
+    #upbeat .upbeat-pad { padding-left:1.5rem !important; padding-right:1.5rem !important; }
+    #upbeat .upbeat-top { padding-top:7rem !important; }
+  }
+
+  /* ── Lead form ── */
+  #upbeat .upbeat-book { display:grid; grid-template-columns:0.85fr 1.15fr; gap:3rem 3.5rem; align-items:start; }
+  #upbeat .lead-lede { font-family:var(--serif); font-size:clamp(1.5rem,2.8vw,2.05rem); font-weight:400; line-height:1.35; letter-spacing:-0.01em; color:var(--ink); margin-bottom:1.4rem; }
+  #upbeat .lead-alt { font-size:0.92rem; color:var(--muted); line-height:1.6; }
+  #upbeat .lead-form { display:flex; flex-direction:column; gap:1.1rem; }
+  #upbeat .lead-row { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; }
+  #upbeat .lead-field { display:flex; flex-direction:column; gap:0.4rem; }
+  #upbeat .lead-field label { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+  #upbeat .lead-field label .req { color:var(--gold-dark); }
+  #upbeat .lead-field input, #upbeat .lead-field textarea {
+    font-family:var(--sans); font-size:0.95rem; color:var(--ink); background:#fbfaf6;
+    border:1px solid rgba(20,24,29,0.18); border-radius:3px; padding:0.72rem 0.85rem; width:100%;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  #upbeat .lead-field input:focus, #upbeat .lead-field textarea:focus {
+    outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(184,134,11,0.14);
+  }
+  #upbeat .lead-field textarea { resize:vertical; min-height:92px; }
+  #upbeat .lead-submit {
+    display:inline-flex; align-items:center; gap:0.7rem; padding:1.05rem 2rem; align-self:flex-start; margin-top:0.3rem;
+    background:var(--navy-deep); color:var(--paper); font-family:var(--sans); font-size:0.78rem; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase; border-radius:2px; border:none; cursor:pointer; transition:all .25s;
+  }
+  #upbeat .lead-submit:hover { background:var(--gold); color:var(--navy-deep); transform:translateY(-2px); }
+  #upbeat .lead-submit[disabled] { opacity:0.55; cursor:default; transform:none; background:var(--navy-deep); color:var(--paper); }
+  #upbeat .lead-status { font-size:0.9rem; line-height:1.6; }
+  #upbeat .lead-status.is-error { color:#a12d2d; }
+  #upbeat .lead-done { border:1px solid rgba(20,24,29,0.14); border-radius:4px; background:#fbfaf6; padding:2.25rem 2.4rem; }
+  #upbeat .lead-done h3 { font-family:var(--serif); font-size:1.6rem; font-weight:400; color:var(--ink); margin-bottom:0.6rem; }
+  #upbeat .lead-done p { font-size:0.98rem; color:var(--warm); line-height:1.7; }
+  @media (max-width:900px) { #upbeat .upbeat-book { grid-template-columns:1fr; gap:2.25rem; } }
+  @media (max-width:560px) { #upbeat .lead-row { grid-template-columns:1fr; } }
+</style>
+<noscript><style>[data-reveal]{opacity:1;transform:none;}</style></noscript>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ NAV ══ -->
+  <nav id="vzNav">
+    <a href="/#top" class="logo" aria-label="Veziroglu Consulting">
+      <span class="logo-v">V</span>
+      <span class="logo-stack">
+        <span class="logo-name">EZIROGLU</span>
+        <span class="logo-rule"></span>
+        <span class="logo-sub">CONSULTING</span>
+      </span>
+    </a>
+    <a href="/#top" class="cs-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+      Back to site
+    </a>
+  </nav>
+
+  <!-- ══ UPBEAT ══ -->
+  <section id="upbeat" style="font-family:var(--sans); background:var(--paper); color:var(--ink); font-size:16px; line-height:1.65; overflow-x:hidden;">
+
+    <!-- BLOCK 1 — OPENING NARRATIVE -->
+    <div class="upbeat-pad upbeat-top" data-reveal style="max-width:1180px; margin:0 auto; padding:9.5rem 3rem 4.5rem;">
+      <div style="display:flex; align-items:center; gap:0.9rem; margin-bottom:2.4rem;">
+        <span style="font-family:var(--serif); font-size:1rem; color:var(--gold); font-style:italic;">00</span>
+        <span style="width:28px; height:1px; background:var(--gold);"></span>
+        <span style="font-size:0.7rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold);">Start here</span>
+      </div>
+
+      <div style="max-width:760px;">
+        <p style="font-family:var(--serif); font-size:clamp(1.9rem,3.4vw,2.85rem); font-weight:400; line-height:1.24; letter-spacing:-0.015em; color:var(--ink); margin-bottom:2.2rem; text-wrap:balance;">Most AI projects in smaller businesses do not fail on the technology. They fail because the process being automated was never properly <em style="font-style:italic; color:var(--gold-dark);">understood</em>.</p>
+
+        <p style="font-size:1.08rem; line-height:1.85; color:var(--warm); margin-bottom:1.5rem;">A process looks simple from the outside. Someone maps the obvious steps and sets up a tool. Then the exceptions start: the supplier who invoices differently, the approval that needs a judgment call, the workaround one person has used for years. None of it was written down, because it lives in people, not documents. AI is good at reading systems and far weaker at reading people, so the tool handles the easy cases while your staff still carry the rest.</p>
+
+        <p style="font-size:1.08rem; line-height:1.85; color:var(--warm);">The fix is not more technology. It is understanding one process properly first, exceptions and all. Then the right tool becomes obvious, and sometimes it is not AI at all but something simpler. Start with one process that genuinely costs you time or money, prove it, then go further.</p>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 + 3 — THE PROGRAMME (navy band) -->
+    <div style="background:var(--navy-deep); color:var(--paper);">
+      <div class="upbeat-pad" style="max-width:1180px; margin:0 auto; padding:6.5rem 3rem 7rem;">
+
+        <!-- TITLE + DESCRIPTOR -->
+        <div data-reveal style="text-align:center; margin-bottom:5.5rem;">
+          <div style="display:inline-flex; align-items:center; gap:0.9rem; margin-bottom:2rem;">
+            <span style="width:28px; height:1px; background:var(--gold-light);"></span>
+            <span style="font-size:0.7rem; font-weight:600; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold-light);">The programme</span>
+            <span style="width:28px; height:1px; background:var(--gold-light);"></span>
+          </div>
+          <h1 style="font-family:var(--serif); font-size:clamp(3.4rem,8vw,6.5rem); font-weight:400; line-height:0.98; letter-spacing:0.02em; color:var(--paper); margin-bottom:1.4rem;">UPBEAT</h1>
+          <p style="font-family:var(--serif); font-style:italic; font-size:clamp(1.35rem,2.6vw,1.9rem); line-height:1.3; color:var(--gold-light); letter-spacing:-0.005em;">Get one process right in three days</p>
+        </div>
+
+        <!-- THE THREE DAYS -->
+        <div data-reveal style="position:relative;">
+          <div class="upbeat-day-arc" style="position:absolute; top:11px; left:12%; right:12%; height:1px; background:linear-gradient(to right, transparent, rgba(212,168,67,0.4) 12%, rgba(212,168,67,0.4) 88%, transparent); z-index:0;"></div>
+          <div class="upbeat-days" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2.75rem; position:relative; z-index:1;">
+
+            <div style="display:flex; flex-direction:column;">
+              <div style="display:flex; justify-content:center; margin-bottom:1.9rem;">
+                <span style="width:22px; height:22px; border-radius:50%; background:var(--gold-light); border:4px solid var(--navy-deep); box-shadow:0 0 0 1px rgba(212,168,67,0.5);"></span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:0.7rem; margin-bottom:0.85rem;">
+                <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-light);">Day 1</span>
+                <span style="height:1px; flex:1; background:rgba(246,244,239,0.14);"></span>
+              </div>
+              <h3 style="font-family:var(--serif); font-size:1.85rem; font-weight:400; line-height:1.15; letter-spacing:-0.01em; color:var(--paper); margin-bottom:1rem;">Discovery</h3>
+              <p style="font-size:0.97rem; line-height:1.75; color:rgba(246,244,239,0.68);">We help you choose one process that carries real value for your customers, then sit with the people who actually run it. We document it properly, to a standard the technology industry recognises, including the exceptions and judgment calls that never made it into any manual. We then agree with you what a good result would look like, so the three days are measured against something concrete.</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column;">
+              <div style="display:flex; justify-content:center; margin-bottom:1.9rem;">
+                <span style="width:22px; height:22px; border-radius:50%; background:var(--gold-light); border:4px solid var(--navy-deep); box-shadow:0 0 0 1px rgba(212,168,67,0.5);"></span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:0.7rem; margin-bottom:0.85rem;">
+                <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-light);">Day 2</span>
+                <span style="height:1px; flex:1; background:rgba(246,244,239,0.14);"></span>
+              </div>
+              <h3 style="font-family:var(--serif); font-size:1.85rem; font-weight:400; line-height:1.15; letter-spacing:-0.01em; color:var(--paper); margin-bottom:1rem;">Exploration</h3>
+              <p style="font-size:0.97rem; line-height:1.75; color:rgba(246,244,239,0.68);">We look at where the process slows down or breaks and identify the options for fixing it. Sometimes that is an external tool, sometimes one of our own accelerators, sometimes something built for your organisation. The solution follows the problem, not the other way round.</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column;">
+              <div style="display:flex; justify-content:center; margin-bottom:1.9rem;">
+                <span style="width:22px; height:22px; border-radius:50%; background:var(--gold-light); border:4px solid var(--navy-deep); box-shadow:0 0 0 1px rgba(212,168,67,0.5);"></span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:0.7rem; margin-bottom:0.85rem;">
+                <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-light);">Day 3</span>
+                <span style="height:1px; flex:1; background:rgba(246,244,239,0.14);"></span>
+              </div>
+              <h3 style="font-family:var(--serif); font-size:1.85rem; font-weight:400; line-height:1.15; letter-spacing:-0.01em; color:var(--paper); margin-bottom:1rem;">Showcase and Next Steps</h3>
+              <p style="font-size:0.97rem; line-height:1.75; color:rgba(246,244,239,0.68);">We put the solution in front of you working on real cases from your business, so you can see exactly what it does and where it helps. If it earns its place, we give you a clear plan to roll it out to the team. If it does not, we agree the next steps honestly.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCK 4 + 5 — GUARANTEE + PRICE -->
+    <div class="upbeat-pad" style="max-width:1180px; margin:0 auto; padding:6.5rem 3rem 3rem;">
+      <div class="upbeat-gp" style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:stretch;">
+
+        <!-- GUARANTEE -->
+        <div data-reveal style="border:1px solid rgba(20,24,29,0.14); border-radius:4px; background:#fbfaf6; padding:2.75rem 2.6rem; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.4rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b8860b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);">The guarantee</span>
+          </div>
+          <p style="font-family:var(--serif); font-size:1.5rem; font-weight:400; line-height:1.4; letter-spacing:-0.01em; color:var(--ink);">If you are not happy at any point during the three days, we stop and refund the days you have not used. If you want to carry on, we plan the next steps together.</p>
+        </div>
+
+        <!-- PRICE -->
+        <div data-reveal style="display:flex; flex-direction:column; justify-content:center; padding:0.5rem 0;">
+          <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1.3rem;">
+            <span style="width:28px; height:1px; background:var(--gold);"></span>
+            <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);">No hidden costs</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem;">
+            <span style="font-family:var(--serif); font-size:clamp(3rem,6vw,4.2rem); line-height:0.95; letter-spacing:-0.01em; color:var(--ink);">£3,000</span>
+            <span style="font-size:0.95rem; font-weight:600; letter-spacing:0.02em; color:var(--muted);">plus VAT</span>
+          </div>
+          <p style="font-size:0.95rem; color:var(--muted); margin-bottom:1.9rem;">for the three days</p>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(20,24,29,0.14);">
+            <div style="padding:1.1rem 1rem 0; border-right:1px solid rgba(20,24,29,0.1);">
+              <div style="font-size:0.66rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8a8079; margin-bottom:0.4rem;">Day 1</div>
+              <div style="font-family:var(--serif); font-size:1.7rem; color:var(--ink);">£1,000</div>
+            </div>
+            <div style="padding:1.1rem 1rem 0; border-right:1px solid rgba(20,24,29,0.1);">
+              <div style="font-size:0.66rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8a8079; margin-bottom:0.4rem;">Day 2</div>
+              <div style="font-family:var(--serif); font-size:1.7rem; color:var(--ink);">£1,000</div>
+            </div>
+            <div style="padding:1.1rem 1rem 0;">
+              <div style="font-size:0.66rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#8a8079; margin-bottom:0.4rem;">Day 3</div>
+              <div style="font-family:var(--serif); font-size:1.7rem; color:var(--ink);">£1,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCK 6 — CALL TO ACTION / LEAD FORM -->
+    <div id="book" class="upbeat-pad" data-reveal style="max-width:1180px; margin:0 auto; padding:3.5rem 3rem 7.5rem;">
+      <div style="border-top:1px solid rgba(20,24,29,0.12); padding-top:3.5rem;">
+        <div class="upbeat-book">
+
+          <div>
+            <div style="display:flex; align-items:center; gap:0.9rem; margin-bottom:1.5rem;">
+              <span style="width:28px; height:1px; background:var(--gold);"></span>
+              <span style="font-size:0.7rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold);">Book a short call</span>
+            </div>
+            <p class="lead-lede">To start, we have a short call to agree the one process worth beginning with and to confirm it is a good fit.</p>
+            <p class="lead-alt">Prefer email? Write to us at <a href="mailto:info@veziroglu.co.uk?subject=UPBEAT%20-%20short%20call">info@veziroglu.co.uk</a>.</p>
+          </div>
+
+          <div id="leadWrap">
+            <form id="leadForm" class="lead-form" data-product="FORTE" novalidate>
+              <div class="lead-row">
+                <div class="lead-field">
+                  <label for="lf-name">Your name <span class="req">*</span></label>
+                  <input id="lf-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="lead-field">
+                  <label for="lf-email">Work email <span class="req">*</span></label>
+                  <input id="lf-email" name="email" type="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="lead-row">
+                <div class="lead-field">
+                  <label for="lf-company">Company <span class="req">*</span></label>
+                  <input id="lf-company" name="company" type="text" autocomplete="organization" required>
+                </div>
+                <div class="lead-field">
+                  <label for="lf-phone">Phone <span style="font-weight:500; letter-spacing:0; text-transform:none;">(optional)</span></label>
+                  <input id="lf-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+              </div>
+              <div class="lead-field">
+                <label for="lf-role">Your role <span style="font-weight:500; letter-spacing:0; text-transform:none;">(optional)</span></label>
+                <input id="lf-role" name="role" type="text" autocomplete="organization-title">
+              </div>
+              <div class="lead-field">
+                <label for="lf-message">The process you'd like to start with <span style="font-weight:500; letter-spacing:0; text-transform:none;">(optional)</span></label>
+                <textarea id="lf-message" name="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="lead-submit">Book a short call
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
+              <p class="lead-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>© 2026 Veziroglu Consulting Ltd. All rights reserved.</footer>
+
+</div>
+<script src="assets/case-study.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('leadForm');
+  if (!form) return;
+  var els = form.elements;
+  var statusEl = form.querySelector('.lead-status');
+  var submitBtn = form.querySelector('.lead-submit');
+  var ENDPOINT = 'https://crm.veziroglu.co.uk/api/lead';
+  var PRODUCT = form.getAttribute('data-product') || 'FORTE';
+  var CONTEXT = 'Enquiry via UPBEAT (three-day programme).';
+  var MAILTO = 'info@veziroglu.co.uk';
+  // Personal/free email hosts — not a company domain, so never send as `domain` (would mis-dedupe).
+  var FREE_EMAIL = {
+    'gmail.com':1,'googlemail.com':1,'outlook.com':1,'hotmail.com':1,'hotmail.co.uk':1,'live.com':1,
+    'live.co.uk':1,'msn.com':1,'yahoo.com':1,'yahoo.co.uk':1,'ymail.com':1,'icloud.com':1,'me.com':1,
+    'mac.com':1,'aol.com':1,'proton.me':1,'protonmail.com':1,'gmx.com':1,'gmx.co.uk':1,'mail.com':1,
+    'yandex.com':1,'zoho.com':1,'hey.com':1,'fastmail.com':1,'pm.me':1,'btinternet.com':1,'sky.com':1,
+    'virginmedia.com':1,'talktalk.net':1,'ntlworld.com':1,'blueyonder.co.uk':1
+  };
+
+  function setStatus(msg, kind) {
+    statusEl.textContent = msg || '';
+    statusEl.className = 'lead-status' + (kind ? ' is-' + kind : '');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    setStatus('', null);
+
+    var name = els['name'].value.trim();
+    var email = els['email'].value.trim();
+    var company = els['company'].value.trim();
+    var phone = els['phone'].value.trim();
+    var role = els['role'].value.trim();
+    var note = els['message'].value.trim();
+
+    if (!name || !company || email.indexOf('@') === -1) {
+      setStatus('Please add your name, company, and a valid email address.', 'error');
+      return;
+    }
+
+    var body = { product: PRODUCT, company: company, contact_name: name, email: email };
+    var host = (email.split('@')[1] || '').trim().toLowerCase();
+    if (host && host.indexOf('.') !== -1 && !FREE_EMAIL[host]) body.domain = host;
+    if (phone) body.phone = phone;
+    if (role) body.role = role;
+    body.message = note ? (CONTEXT + '\n\n' + note) : CONTEXT;
+
+    var headers = { 'content-type': 'application/json' };
+    var ts = form.querySelector('[name="cf-turnstile-response"]');
+    if (ts && ts.value) headers['cf-turnstile-response'] = ts.value;
+
+    var original = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch(ENDPOINT, { method: 'POST', headers: headers, body: JSON.stringify(body) })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (j) { return { status: res.status, json: j }; });
+      })
+      .then(function (r) {
+        if (r.status === 201) { showDone(); return; }
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = original;
+        if (r.status === 422) {
+          setStatus(r.json && r.json.detail ? ('Please check your details: ' + r.json.detail) : 'Some details need checking. Please review and try again.', 'error');
+        } else if (r.status === 403) {
+          setStatus('That looked like an automated submission. Please try again.', 'error');
+          if (window.turnstile) { try { window.turnstile.reset(); } catch (err) {} }
+        } else if (r.status === 503) {
+          setStatus('The booking service is briefly unavailable. Please email ' + MAILTO + ' and we will pick it up.', 'error');
+        } else {
+          setStatus('Something went wrong. Please email ' + MAILTO + ' and we will get back to you.', 'error');
+        }
+      })
+      .catch(function () {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = original;
+        setStatus('We could not reach the booking service. Please email ' + MAILTO + ' and we will get back to you.', 'error');
+      });
+
+    function showDone() {
+      document.getElementById('leadWrap').innerHTML =
+        '<div class="lead-done"><h3>Thank you. We’ll be in touch.</h3>' +
+        '<p>We’ve received your details and will email you shortly to arrange the short call and confirm the one process worth starting with.</p></div>';
+    }
+  });
+})();
+</script>
+</body>
+</html>

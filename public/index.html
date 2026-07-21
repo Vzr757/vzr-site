@@ -188,12 +188,23 @@
   [data-reveal] { opacity:0; transform:translateY(26px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); will-change:opacity, transform; }
   [data-reveal].revealed { opacity:1; transform:none; }
 
+  /* ── UPBEAT feature card ── */
+  .upbeat-feature {
+    position:relative; display:grid; grid-template-columns:1.4fr 1fr; gap:3rem; align-items:center;
+    background:var(--navy-deep); border:1px solid rgba(255,255,255,0.08); border-radius:8px;
+    padding:3.25rem 3.5rem; overflow:hidden; text-align:left;
+    transition:border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .upbeat-feature:hover { border-color:rgba(184,134,11,0.5); box-shadow:0 24px 60px -30px rgba(0,0,0,0.55); transform:translateY(-3px); }
+  .upbeat-feature-glow { position:absolute; top:-90px; right:-70px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(212,168,67,0.16), transparent 70%); pointer-events:none; }
+
   /* ── RESPONSIVE ── */
   @media (max-width:900px) {
     .grid-2 { grid-template-columns:1fr; }
     .grid-3 { grid-template-columns:1fr 1fr; }
     .detail-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
     .pulse-items { grid-template-columns:1fr 1fr; }
+    .upbeat-feature { grid-template-columns:1fr; gap:2.25rem; }
   }
   @media (max-width:640px) {
     nav, nav.scrolled { padding:0.9rem 1.25rem; }
@@ -204,6 +215,7 @@
     .section { padding:5rem 1.5rem 3rem; }
     .hero-inner { padding:7rem 1.5rem 4rem; }
     .item-grid, .pulse-items, .grid-3 { grid-template-columns:1fr; }
+    .upbeat-feature { padding:2.25rem 1.5rem; }
     .contact { padding:5rem 1.5rem; }
     .practices-head { display:block; }
     .practices-head-p { margin-top:1.5rem; }
@@ -228,6 +240,7 @@
       </span>
     </a>
     <ul class="nav-links">
+      <li><a href="/upbeat" class="nav-link">UPBEAT</a></li>
       <li><a href="#practices" class="nav-link">Practices</a></li>
       <li><a href="#products" class="nav-link">Products</a></li>
       <li><a href="#work" class="nav-link">Case studies</a></li>
@@ -263,6 +276,46 @@
       <span class="scroll-bar"></span>
     </div>
   </header>
+
+  <!-- ══ UPBEAT (featured) ══ -->
+  <section id="upbeat" class="section" style="padding-top:7.5rem; padding-bottom:4rem;">
+    <a class="upbeat-feature" href="/upbeat" data-reveal aria-label="UPBEAT: get one process right in three days">
+      <div class="upbeat-feature-glow"></div>
+
+      <div style="position:relative;">
+        <div class="kicker" style="margin-bottom:1.5rem;">
+          <span class="kicker-num" style="color:var(--gold-light);">00</span>
+          <span class="kicker-line" style="background:var(--gold-light);"></span>
+          <span class="kicker-text" style="color:var(--gold-light);">Start here</span>
+        </div>
+        <div style="display:flex; align-items:baseline; gap:1rem 1.15rem; flex-wrap:wrap; margin-bottom:1.15rem;">
+          <span style="font-family:var(--serif); font-size:clamp(2.4rem,4vw,3.4rem); line-height:0.92; letter-spacing:0.02em; color:var(--paper);">UPBEAT</span>
+          <span style="font-family:var(--serif); font-style:italic; font-size:clamp(1.1rem,2vw,1.45rem); line-height:1.2; color:var(--gold-light);">Get one process right in three days</span>
+        </div>
+        <p style="font-size:1rem; line-height:1.7; color:rgba(246,244,239,0.68); max-width:540px; margin-bottom:1.9rem;">A fixed three-day programme to understand one process properly, exceptions and all, and prove the right fix before you commit to more. Sometimes the answer is AI; sometimes it is something simpler.</p>
+        <div style="display:flex; gap:0.55rem; flex-wrap:wrap; margin-bottom:2.1rem;">
+          <span style="font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(246,244,239,0.72); border:1px solid rgba(246,244,239,0.18); border-radius:2px; padding:0.42rem 0.8rem;"><span style="color:var(--gold-light);">01</span>&nbsp; Discovery</span>
+          <span style="font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(246,244,239,0.72); border:1px solid rgba(246,244,239,0.18); border-radius:2px; padding:0.42rem 0.8rem;"><span style="color:var(--gold-light);">02</span>&nbsp; Exploration</span>
+          <span style="font-size:0.66rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(246,244,239,0.72); border:1px solid rgba(246,244,239,0.18); border-radius:2px; padding:0.42rem 0.8rem;"><span style="color:var(--gold-light);">03</span>&nbsp; Showcase &amp; Next Steps</span>
+        </div>
+        <span class="btn btn-gold">Explore the programme
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+      </div>
+
+      <div class="upbeat-feature-aside" style="position:relative;">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1.1rem;">
+          <span style="width:24px; height:1px; background:var(--gold-light);"></span>
+          <span style="font-size:0.64rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-light);">No hidden costs</span>
+        </div>
+        <div style="display:flex; align-items:baseline; gap:0.5rem; margin-bottom:0.3rem;">
+          <span style="font-family:var(--serif); font-size:clamp(2.6rem,5vw,3.4rem); line-height:0.95; color:var(--paper);">£3,000</span>
+          <span style="font-size:0.85rem; font-weight:600; color:rgba(246,244,239,0.6);">plus VAT</span>
+        </div>
+        <p style="font-size:0.85rem; color:rgba(246,244,239,0.55); margin-bottom:1.4rem;">for the three days</p>
+        <div style="border-top:1px solid rgba(246,244,239,0.14); padding-top:1.1rem; font-size:0.82rem; line-height:1.6; color:rgba(246,244,239,0.62);">Three equal days at £1,000 each. Not happy? We stop and refund the days you have not used.</div>
+      </div>
+    </a>
+  </section>
 
   <!-- ══ PRACTICES ══ -->
   <section id="practices" class="section">
