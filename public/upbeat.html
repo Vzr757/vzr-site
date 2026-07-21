@@ -303,7 +303,7 @@
       return;
     }
 
-    var body = { product: PRODUCT, company: company, contact_name: name, email: email };
+    var body = { product: PRODUCT, source: 'upbeat', company: company, contact_name: name, email: email };
     var host = (email.split('@')[1] || '').trim().toLowerCase();
     if (host && host.indexOf('.') !== -1 && !FREE_EMAIL[host]) body.domain = host;
     if (phone) body.phone = phone;
