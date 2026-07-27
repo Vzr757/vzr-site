@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://consulting.veziroglu.co.uk/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -21,6 +21,12 @@
   <url>
     <loc>https://consulting.veziroglu.co.uk/articles/division-no-longer-geographic</loc>
     <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://consulting.veziroglu.co.uk/articles/what-is-left-to-compete-on</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
