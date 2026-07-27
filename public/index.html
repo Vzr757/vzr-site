@@ -122,6 +122,25 @@
   .card-desc { font-size:0.88rem; color:rgba(246,244,239,0.6); line-height:1.6; margin-bottom:1.15rem; }
   .card-more { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-light); }
 
+  /* ── INSIGHTS CAROUSEL ── */
+  .carousel { position:relative; animation:vzFade .5s ease; }
+  .carousel-track {
+    display:flex; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory;
+    scroll-behavior:smooth; padding-bottom:0.25rem;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .carousel-track::-webkit-scrollbar { display:none; }
+  .carousel-track > .card { flex:0 0 calc((100% - 1.5rem) / 2); scroll-snap-align:start; }
+  .carousel-controls { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; margin-top:1.9rem; }
+  .carousel-controls[hidden] { display:none; }
+  .carousel-dots { display:flex; align-items:center; gap:0.55rem; }
+  .carousel-dot { width:7px; height:7px; border-radius:50%; border:none; padding:0; cursor:pointer; background:rgba(20,24,29,0.18); transition:background .3s, transform .3s; }
+  .carousel-dot.is-active { background:var(--gold); transform:scale(1.4); }
+  .carousel-arrows { display:flex; gap:0.6rem; }
+  .carousel-arrow { width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(20,24,29,0.18); border-radius:50%; background:transparent; color:var(--ink); cursor:pointer; transition:border-color .25s, background .25s, color .25s, opacity .25s; }
+  .carousel-arrow:hover:not(:disabled) { border-color:var(--gold); background:var(--gold); color:var(--paper); }
+  .carousel-arrow:disabled { opacity:0.28; cursor:default; }
+
   /* ── DETAIL VIEW ── */
   .detail { animation:vzFade .5s ease; }
   .detail-bar { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:2.75rem; }
@@ -202,6 +221,7 @@
   @media (max-width:900px) {
     .grid-2 { grid-template-columns:1fr; }
     .grid-3 { grid-template-columns:1fr 1fr; }
+    .carousel-track > .card { flex-basis:100%; }
     .detail-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
     .pulse-items { grid-template-columns:1fr 1fr; }
     .upbeat-feature { grid-template-columns:1fr; gap:2.25rem; }
@@ -223,6 +243,7 @@
   @media (prefers-reduced-motion: reduce) {
     .anim-1,.anim-2,.anim-3,.anim-4,.anim-5 { animation:none; opacity:1; }
     [data-reveal] { transition:none; }
+    .carousel-track { scroll-behavior:auto; }
   }
 </style>
 </head>
@@ -541,7 +562,8 @@
       </div>
       <p class="practices-head-p">Short pieces on how we approach the work — <strong>automation right-sized to the problem</strong>, operating models that survive contact with reality, and the expertise worth encoding.</p>
     </div>
-    <div class="grid-2" data-reveal>
+    <div class="carousel" data-reveal>
+      <div class="carousel-track" id="insightsTrack">
       <a class="card" href="articles/ai-projects-fail-on-process">
         <div class="card-body pad-top">
           <div class="card-tag">
@@ -578,6 +600,18 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
         </div>
       </a>
+      </div>
+      <div class="carousel-controls" id="insightsControls" hidden>
+        <div class="carousel-dots" id="insightsDots" role="tablist" aria-label="Insights"></div>
+        <div class="carousel-arrows">
+          <button class="carousel-arrow" type="button" data-dir="prev" aria-label="Previous insights">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+          </button>
+          <button class="carousel-arrow" type="button" data-dir="next" aria-label="Next insights">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -786,6 +820,74 @@
   } else {
     reveals.forEach(function (el) { el.classList.add('revealed'); });
   }
+})();
+
+/* ── Insights carousel ── */
+(function () {
+  var track = document.getElementById('insightsTrack');
+  var controls = document.getElementById('insightsControls');
+  var dotsWrap = document.getElementById('insightsDots');
+  if (!track || !controls || !dotsWrap) return;
+
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.card'));
+  var arrows = Array.prototype.slice.call(controls.querySelectorAll('.carousel-arrow'));
+  var current = 0;
+
+  function step() {
+    if (cards.length < 2) return track.clientWidth;
+    return cards[1].offsetLeft - cards[0].offsetLeft;
+  }
+  function overflowing() { return track.scrollWidth - track.clientWidth > 2; }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    cards.forEach(function (card, i) {
+      var b = document.createElement('button');
+      b.className = 'carousel-dot';
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', 'Go to insight ' + (i + 1));
+      b.addEventListener('click', function () { track.scrollTo({ left: i * step(), behavior: 'smooth' }); });
+      dotsWrap.appendChild(b);
+    });
+  }
+
+  function sync() {
+    var show = overflowing();
+    controls.hidden = !show;
+    if (!show) return;
+    var idx = Math.round(track.scrollLeft / step());
+    idx = Math.max(0, Math.min(idx, cards.length - 1));
+    current = idx;
+    var dots = dotsWrap.children;
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].classList.toggle('is-active', i === idx);
+      dots[i].setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    }
+    var atStart = track.scrollLeft <= 1;
+    var atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+    arrows.forEach(function (a) {
+      var dir = a.getAttribute('data-dir');
+      a.disabled = (dir === 'prev' && atStart) || (dir === 'next' && atEnd);
+    });
+  }
+
+  arrows.forEach(function (a) {
+    a.addEventListener('click', function () {
+      var dir = a.getAttribute('data-dir') === 'next' ? 1 : -1;
+      track.scrollTo({ left: (current + dir) * step(), behavior: 'smooth' });
+    });
+  });
+
+  var raf;
+  track.addEventListener('scroll', function () {
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(sync);
+  });
+  window.addEventListener('resize', sync);
+
+  buildDots();
+  sync();
 })();
 </script>
 </body>
