@@ -122,6 +122,36 @@
   .card-desc { font-size:0.88rem; color:rgba(246,244,239,0.6); line-height:1.6; margin-bottom:1.15rem; }
   .card-more { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-light); }
 
+  /* ── CAROUSEL ── */
+  /* Horizontal, snap-scrolling rail. Any number of cards lays out identically,
+     so adding one never leaves an orphan in a half-filled row. */
+  .carousel { position:relative; }
+  .carousel-track {
+    display:grid; grid-auto-flow:column; grid-auto-columns:calc((100% - 1.5rem) / 2); gap:1.5rem;
+    overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; overscroll-behavior-x:contain;
+    padding:8px 0 34px; margin:-8px 0 -18px;   /* room for card hover lift + shadow */
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .carousel-track::-webkit-scrollbar { display:none; }
+  .carousel-track > .card { scroll-snap-align:start; }
+  .carousel-ctl { display:none; align-items:center; justify-content:space-between; gap:1.5rem; margin-top:2rem; }
+  .carousel.ready .carousel-ctl { display:flex; }
+  .carousel-dots { display:flex; align-items:center; gap:0.6rem; }
+  .carousel-dot {
+    width:7px; height:7px; padding:0; border:none; border-radius:50%; background:rgba(20,24,29,0.2);
+    cursor:pointer; transition:background .25s, transform .25s;
+  }
+  .carousel-dot:hover { background:rgba(20,24,29,0.4); }
+  .carousel-dot.active { background:var(--gold); transform:scale(1.3); }
+  .carousel-arrows { display:flex; gap:0.6rem; }
+  .carousel-arrow {
+    width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid rgba(20,24,29,0.22); border-radius:50%; background:none; color:var(--ink);
+    cursor:pointer; transition:background .25s, color .25s, border-color .25s, opacity .25s;
+  }
+  .carousel-arrow:hover:not(:disabled) { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .carousel-arrow:disabled { opacity:0.28; cursor:default; }
+
   /* ── DETAIL VIEW ── */
   .detail { animation:vzFade .5s ease; }
   .detail-bar { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-bottom:2.75rem; }
@@ -201,6 +231,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width:900px) {
     .grid-2 { grid-template-columns:1fr; }
+    .carousel-track { grid-auto-columns:86%; }
     .grid-3 { grid-template-columns:1fr 1fr; }
     .detail-grid, .about-grid { grid-template-columns:1fr; gap:2.5rem; }
     .pulse-items { grid-template-columns:1fr 1fr; }
@@ -223,8 +254,10 @@
   @media (prefers-reduced-motion: reduce) {
     .anim-1,.anim-2,.anim-3,.anim-4,.anim-5 { animation:none; opacity:1; }
     [data-reveal] { transition:none; }
+    .carousel-track { scroll-behavior:auto; }
   }
 </style>
+<noscript><style>[data-reveal]{opacity:1;transform:none;}</style></noscript>
 </head>
 <body>
 <div class="page">
@@ -541,67 +574,82 @@
       </div>
       <p class="practices-head-p">Short pieces on how we approach the work — <strong>automation right-sized to the problem</strong>, operating models that survive contact with reality, and the expertise worth encoding.</p>
     </div>
-    <div class="grid-2" data-reveal>
-      <a class="card" href="articles/ai-projects-fail-on-process">
-        <div class="card-body pad-top">
-          <div class="card-tag">
-            <span class="card-tag-num">01</span>
-            <span class="card-sector">On automation</span>
+    <!-- Newest first. Add a new article as the first card and renumber; the
+         carousel takes any number of cards without reflowing the section. -->
+    <div class="carousel" id="insightCarousel" data-reveal>
+      <div class="carousel-track" id="insightTrack" role="group" aria-label="Insights">
+        <a class="card" href="articles/work-is-not-in-the-steps">
+          <div class="card-body pad-top">
+            <div class="card-tag">
+              <span class="card-tag-num">01</span>
+              <span class="card-sector">On expertise</span>
+            </div>
+            <div class="card-title">The work is not in the steps</div>
+            <div class="card-desc">A process document can be accurate, followed exactly, and still produce the wrong result. What the expert holds is not the steps — it's the judgement the steps are a residue of.</div>
+            <span class="card-more">Read article
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
           </div>
-          <div class="card-title">AI projects fail on misunderstood processes, not the technology</div>
-          <div class="card-desc">Most AI projects in smaller businesses don't stall on the tech. They stall because the process being automated was never fully understood — exceptions, judgment calls, and all.</div>
-          <span class="card-more">Read article
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
-        </div>
-      </a>
-      <a class="card" href="articles/division-no-longer-geographic">
-        <div class="card-body pad-top">
-          <div class="card-tag">
-            <span class="card-tag-num">02</span>
-            <span class="card-sector">Field note</span>
+        </a>
+        <a class="card" href="articles/business-architecture-roadmap">
+          <div class="card-body pad-top">
+            <div class="card-tag">
+              <span class="card-tag-num">02</span>
+              <span class="card-sector">On architecture</span>
+            </div>
+            <div class="card-title">Business architecture and the roadmap that survives</div>
+            <div class="card-desc">Most organisations can name the right initiatives. What goes wrong is the sequence — and a business case that prices the build without pricing the change.</div>
+            <span class="card-more">Read article
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
           </div>
-          <div class="card-title">The division that is no longer geographic</div>
-          <div class="card-desc">Global Capability Centres are the newest way to divide labour by geography. But the division being settled now isn't geographic — it's between people and machines.</div>
-          <span class="card-more">Read article
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
-        </div>
-      </a>
-      <a class="card" href="articles/what-is-left-to-compete-on">
-        <div class="card-body pad-top">
-          <div class="card-tag">
-            <span class="card-tag-num">03</span>
-            <span class="card-sector">On competition</span>
+        </a>
+        <a class="card" href="articles/what-is-left-to-compete-on">
+          <div class="card-body pad-top">
+            <div class="card-tag">
+              <span class="card-tag-num">03</span>
+              <span class="card-sector">On competition</span>
+            </div>
+            <div class="card-title">Once everyone has the same tools, what is left to compete on?</div>
+            <div class="card-desc">When everyone has the same models and tooling, the technology stops being the differentiator. What hasn't commoditised is access to the parts of a business that were never written down.</div>
+            <span class="card-more">Read article
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
           </div>
-          <div class="card-title">Once everyone has the same tools, what is left to compete on?</div>
-          <div class="card-desc">When everyone has the same models and tooling, the technology stops being the differentiator. What hasn't commoditised is access to the parts of a business that were never written down.</div>
-          <span class="card-more">Read article
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
-        </div>
-      </a>
-      <a class="card" href="articles/business-architecture-roadmap">
-        <div class="card-body pad-top">
-          <div class="card-tag">
-            <span class="card-tag-num">04</span>
-            <span class="card-sector">On architecture</span>
+        </a>
+        <a class="card" href="articles/division-no-longer-geographic">
+          <div class="card-body pad-top">
+            <div class="card-tag">
+              <span class="card-tag-num">04</span>
+              <span class="card-sector">Field note</span>
+            </div>
+            <div class="card-title">The division that is no longer geographic</div>
+            <div class="card-desc">Global Capability Centres are the newest way to divide labour by geography. But the division being settled now isn't geographic — it's between people and machines.</div>
+            <span class="card-more">Read article
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
           </div>
-          <div class="card-title">Business architecture and the roadmap that survives</div>
-          <div class="card-desc">Most organisations can name the right initiatives. What goes wrong is the sequence — and a business case that prices the build without pricing the change.</div>
-          <span class="card-more">Read article
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
-        </div>
-      </a>
-      <a class="card" href="articles/work-is-not-in-the-steps">
-        <div class="card-body pad-top">
-          <div class="card-tag">
-            <span class="card-tag-num">05</span>
-            <span class="card-sector">On expertise</span>
+        </a>
+        <a class="card" href="articles/ai-projects-fail-on-process">
+          <div class="card-body pad-top">
+            <div class="card-tag">
+              <span class="card-tag-num">05</span>
+              <span class="card-sector">On automation</span>
+            </div>
+            <div class="card-title">AI projects fail on misunderstood processes, not the technology</div>
+            <div class="card-desc">Most AI projects in smaller businesses don't stall on the tech. They stall because the process being automated was never fully understood — exceptions, judgment calls, and all.</div>
+            <span class="card-more">Read article
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
           </div>
-          <div class="card-title">The work is not in the steps</div>
-          <div class="card-desc">A process document can be accurate, followed exactly, and still produce the wrong result. What the expert holds is not the steps — it's the judgement the steps are a residue of.</div>
-          <span class="card-more">Read article
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+        </a>
+      </div>
+      <div class="carousel-ctl">
+        <div class="carousel-dots" id="insightDots"></div>
+        <div class="carousel-arrows">
+          <button class="carousel-arrow" type="button" id="insightPrev" aria-label="Previous insights" aria-controls="insightTrack">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+          </button>
+          <button class="carousel-arrow" type="button" id="insightNext" aria-label="More insights" aria-controls="insightTrack">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </button>
         </div>
-      </a>
+      </div>
     </div>
   </section>
 
@@ -791,6 +839,78 @@
     if (tab) { showProduct(tab.getAttribute('data-product-tab')); return; }
     if (e.target.closest('[data-product-close]')) closeProduct();
   });
+
+  // ── Insights carousel ──
+  // The track scrolls natively (touch, trackpad, keyboard); dots and arrows are
+  // progressive enhancement, revealed only once this runs.
+  var carousel = document.getElementById('insightCarousel');
+  var track = document.getElementById('insightTrack');
+  if (carousel && track && track.children.length) {
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsWrap = document.getElementById('insightDots');
+    var prevBtn = document.getElementById('insightPrev');
+    var nextBtn = document.getElementById('insightNext');
+    var perView = 1, pageCount = 1, current = 0;
+
+    function slideStep() {
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return slides[0].getBoundingClientRect().width + gap;
+    }
+    function maxScroll() { return Math.max(0, track.scrollWidth - track.clientWidth); }
+
+    function goToPage(p) {
+      var i = Math.min(Math.max(p, 0) * perView, slides.length - 1);
+      var left = slides[i].offsetLeft - slides[0].offsetLeft;
+      if (track.scrollTo) track.scrollTo({ left: left, behavior: 'smooth' });
+      else track.scrollLeft = left;
+    }
+    function currentPage() {
+      var max = maxScroll();
+      if (max <= 1) return 0;
+      if (track.scrollLeft >= max - 2) return pageCount - 1;   // last page is clamped by the scroller
+      return Math.min(pageCount - 1, Math.floor(Math.round(track.scrollLeft / slideStep()) / perView));
+    }
+    function sync() {
+      current = currentPage();
+      for (var i = 0; i < dotsWrap.children.length; i++) {
+        dotsWrap.children[i].classList.toggle('active', i === current);
+      }
+      prevBtn.disabled = track.scrollLeft <= 1;
+      nextBtn.disabled = track.scrollLeft >= maxScroll() - 1;
+    }
+    function makeDot(i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'carousel-dot';
+      b.setAttribute('aria-label', 'Show insights ' + (i + 1) + ' of ' + pageCount);
+      b.addEventListener('click', function () { goToPage(i); });
+      return b;
+    }
+    function measure() {
+      var step = slideStep();
+      perView = step > 0 ? Math.max(1, Math.round(track.clientWidth / step)) : 1;
+      pageCount = Math.max(1, Math.ceil(slides.length / perView));
+      if (dotsWrap.children.length !== pageCount) {
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < pageCount; i++) dotsWrap.appendChild(makeDot(i));
+      }
+      sync();
+    }
+
+    prevBtn.addEventListener('click', function () { goToPage(currentPage() - 1); });
+    nextBtn.addEventListener('click', function () { goToPage(currentPage() + 1); });
+
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; sync(); });
+    }, { passive: true });
+    window.addEventListener('resize', measure);
+
+    measure();
+    carousel.classList.add('ready');
+  }
 
   // ── Nav shadow on scroll ──
   var nav = document.getElementById('vzNav');
