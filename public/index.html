@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <title>Veziroglu · Boutique Consultancy</title>
-<meta name="description" content="Veziroglu is a boutique consultancy delivering business transformation, data governance, resource architecture, and operating model design. Home of PULSE and OVERTURE.">
+<meta name="description" content="Veziroglu is a boutique consultancy delivering business transformation, data governance, resource architecture, and operating model design. Home of PULSE.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -109,10 +109,8 @@
   .card-media-veil { position:absolute; inset:0; background:linear-gradient(to bottom, transparent 35%, var(--navy-deep) 100%); }
   .card-icon { position:relative; height:118px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
   .card-icon.pulse-bg { background:linear-gradient(135deg,var(--navy),var(--navy-deep)); }
-  .card-icon.overture-bg { background:linear-gradient(135deg,#20242b,#14181d); }
   .card-icon-glow { position:absolute; top:-40px; right:-40px; width:150px; height:150px; border-radius:50%; }
   .card-icon.pulse-bg .card-icon-glow { background:radial-gradient(circle, rgba(212,168,67,0.2), transparent 70%); }
-  .card-icon.overture-bg .card-icon-glow { background:radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%); }
   .card-body { padding:0.4rem 1.9rem 1.9rem; }
   .card-body.pad-top { padding-top:1.5rem; }
   .card-tag { display:flex; align-items:center; gap:0.7rem; margin-bottom:0.75rem; }
@@ -185,9 +183,6 @@
   .pulse-items { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; margin-top:2.75rem; }
   .pulse-items h4 { font-size:0.92rem; font-weight:600; color:var(--ink); margin-bottom:0.35rem; }
   .pulse-items p { font-size:0.84rem; color:var(--muted); line-height:1.6; }
-  .overture-media { position:relative; height:230px; border-radius:4px; overflow:hidden; background:linear-gradient(135deg,#20242b,#14181d); display:flex; align-items:center; justify-content:center; margin-bottom:1.9rem; }
-  .visit-btn { display:inline-flex; align-items:center; gap:0.6rem; padding:0.95rem 1.8rem; background:var(--ink); color:var(--paper); font-size:0.76rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; border-radius:2px; transition:all .25s; }
-  .visit-btn:hover { background:var(--gold); color:var(--navy-deep); }
 
   /* ── ABOUT ── */
   .about-grid { display:grid; grid-template-columns:0.9fr 1.1fr; gap:4rem; align-items:start; }
@@ -435,18 +430,6 @@
           <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
         </div>
       </button>
-      <button class="card" type="button" data-product="overture">
-        <div class="card-icon overture-bg">
-          <div class="card-icon-glow"></div>
-          <img src="images/overture-logo-300.png" alt="Overture" width="40" height="40" style="display:block; border-radius:8px; position:relative;">
-        </div>
-        <div class="card-body pad-top">
-          <div class="card-tag"><span class="card-tag-num">02</span><span class="card-tag-name">OVERTURE</span></div>
-          <div class="card-title">M&amp;A Target Discovery</div>
-          <p class="card-desc">Surfaces the long tail of companies that ranked search and prebuilt directories leave off the map. Built for M&amp;A and deal-sourcing analysts.</p>
-          <span class="card-more">View details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
-        </div>
-      </button>
     </div>
 
     <!-- PRODUCT DETAIL -->
@@ -454,7 +437,6 @@
       <div class="detail-bar">
         <div class="detail-tabs">
           <button class="tab" type="button" data-product-tab="pulse"><span>01</span> PULSE</button>
-          <button class="tab" type="button" data-product-tab="overture"><span>02</span> OVERTURE</button>
         </div>
         <button class="link-back" type="button" data-product-close>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
@@ -481,28 +463,6 @@
           <div class="item"><h4>Environment Checks</h4><p>Two-tier model with event-based session boundaries. Conditions verified before and during execution.</p></div>
           <div class="item"><h4>Resource Classification</h4><p>Mandatory, recommended, conditional — each with named absence responses. Readiness assesses capabilities, not inventory.</p></div>
           <div class="item"><h4>Verify, Recover, Refuse</h4><p>Typed verification gates, viable recovery confirmed before execution begins, and first-class refuse logic.</p></div>
-        </div>
-      </div>
-
-      <!-- OVERTURE DETAIL -->
-      <div id="overtureDetail" class="pulse-detail hidden">
-        <div class="detail-grid" style="border-top:none; padding-top:0;">
-          <div>
-            <div class="overture-media">
-              <img src="images/overture-logo-300.png" alt="Overture" width="72" height="72" style="border-radius:14px;">
-            </div>
-            <div class="detail-tag"><span class="detail-tag-num">02</span><span class="detail-tag-name">OVERTURE</span></div>
-            <div class="detail-title">M&amp;A Target Discovery</div>
-          </div>
-          <div>
-            <p class="detail-blurb" style="margin-bottom:2rem;">OVERTURE surfaces the long tail of companies that ranked search and prebuilt directories leave off the map. Built for M&amp;A and deal-sourcing analysts, it widens the aperture of a search so the targets everyone else misses become visible.</p>
-            <div class="item-grid" style="margin-bottom:2.5rem;">
-              <div class="item"><h4>Long-tail Discovery</h4><p>Reaches beyond ranked results and curated lists to the companies that never surface in a standard search.</p></div>
-              <div class="item"><h4>Built for Deal Sourcing</h4><p>Purpose-built for M&amp;A and deal-sourcing analysts who need coverage, not just the obvious names.</p></div>
-            </div>
-            <a href="https://ovrtr.co.uk" target="_blank" rel="noopener" class="visit-btn">Visit ovrtr.co.uk
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"></path></svg></a>
-          </div>
         </div>
       </div>
     </div>
@@ -809,13 +769,11 @@
   var productGrid = document.getElementById('productGrid');
   var productDetail = document.getElementById('productDetail');
   var pulseDetail = document.getElementById('pulseDetail');
-  var overtureDetail = document.getElementById('overtureDetail');
   var productTabs = productDetail.querySelectorAll('[data-product-tab]');
 
   function showProduct(which) {
     var isPulse = which === 'pulse';
     pulseDetail.classList.toggle('hidden', !isPulse);
-    overtureDetail.classList.toggle('hidden', isPulse);
     productTabs.forEach(function (t) {
       t.classList.toggle('active', t.getAttribute('data-product-tab') === which);
     });
